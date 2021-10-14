@@ -14,7 +14,7 @@
   "rules": {
     "prettier/prettier": [
       "error",
-      { "singleQuote": true, "semi": true },
+      { "singleQuote": true, "semi": true, "jsxSingleQuote": true },
       { "usePrettierrc": true }
     ],
     "lines-between-class-members": [
