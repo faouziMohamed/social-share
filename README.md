@@ -1,16 +1,58 @@
+# Social Share
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
-
-First, run the development server:
+## Getting Started - Run project localy 
+📸 First [_Fork,_ ] clone the repo and cd to the directory `social-share`  
+  ```bash
+  # Using https 
+  git clone https://github.com/faouziMohamed/social-share.git
+  ```
+  ```bash
+  # or using shh 
+  git clone git@github.com:faouziMohamed/social-share.git
+  ```
+  ```bash
+  cd social-share
+  ```
+## Running directly in your machine
+- Install node version 14
+- Install mondodb (server)
+- Install project dependencies 
+```bash
+yarn install
+```
+```bash
+# or 
+npm install
+```
+Then run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
 ```
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Using Docker [recommended ☑️]
+1. You'll need to have [Docker](https://docs.docker.com/engine/install/) installed in your machine
+1. Build a docker image using the command bellow 
+   ```yaml
+   # This assume you are in the root of the directory
+    docker build --pull --rm -f "Dockerfile" -t socialshare:latest .
+   ``` 
+    While docker is building the image pass to the next step (_**Running the mongoDb server**_)
+1. Pull the latest image of MongoDB server, run it in a docker container and expose it to the default port  using the commande bellow 
+   Open a new terminal and run:
+   ```yaml
+   docker run --rm --name mongodb -d -p27017:27017 mongo
+   ```
+ 1. If the command from the step 2 and 3 finished to run, run the Web server and expose the port 3000 to your host
+     ```yaml
+     docker run -it --rm --name social-share -p3000:3000 socialshare
+     ```
+After these steps, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
 
 ## Learn More
 
