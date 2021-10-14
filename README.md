@@ -38,7 +38,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 1. You'll need to have [Docker](https://docs.docker.com/engine/install/) installed in your machine
 1. Build a docker image using the command bellow 
    ```yaml
-   # This assume you are in the root of the directory
+   # This assume you are in the root of the directory project
     docker build --pull --rm -f "Dockerfile" -t socialshare:latest .
    ``` 
     While docker is building the image pass to the next step (_**Running the mongoDb server**_)
