@@ -1,0 +1,35 @@
+import passport from 'passport';
+import LocalStrategy from 'passport-local';
+
+import {
+  findUserById,
+  findUserByUsername,
+} from '../lib/db/queries/user.queries';
+
+passport.serializeUser((user, done) => done(null, user._id));
+
+passport.deserializeUser(async (req, id, done) =>
+  done(null, (await findUserById(id)).toObject()),
+);
+
+async function verifyLogin(req, username, password, done) {
+  const msgs = { user: 'User not found', pass: 'Incorrect password' };
+  const user = await findUserByUsername(username.toLowerCase(), true);
+  if (!user) return done(null, false, { error: msgs.user });
+  const isMatch = await user.comparePassword(password);
+  if (!isMatch) return done(null, false, { error: msgs.pass });
+  return done(null, user.toObject());
+}
+
+passport.use(
+  new LocalStrategy(
+    {
+      passReqToCallback: true,
+      usernameField: 'username',
+      passwordField: 'password',
+    },
+    verifyLogin,
+  ),
+);
+
+export default passport;
