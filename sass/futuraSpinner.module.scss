@@ -1,0 +1,83 @@
+@use './partials/00-globals/variables' as v;
+@use './partials/00-globals/global-mixin' as *;
+
+@keyframes spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@function addSpinnerAnimation($duration: 0.5s, $direction: normal, $delay: 0s) {
+  $name: spinner;
+  $timing: linear;
+  $iteration-count: infinite;
+  @return $name $duration $timing $delay $iteration-count $direction;
+}
+
+%spinner_preset {
+  border-radius: 50%;
+  border-color: transparent var(--inner-spinner-color)
+    var(--inner-spinner-color) transparent;
+  border-width: var(--load-spinner-line-width);
+  border-style: solid;
+  box-shadow: 0 0 0.5rem 0.1rem var(--spinner-box-shaddow-color);
+}
+
+.preloader-parent {
+  position: absolute;
+  @include useFlexbox(none);
+  @include useSquareSize(100%);
+}
+
+.spinner_preloader {
+  --load-spinner-size: 2.3rem;
+  --load-spinner-line-width: 0.16rem;
+  --spinner-box-shaddow-color: rgba(212, 255, 255, 0.672);
+  --inner-spinner-color: rgb(8, 155, 175);
+  --middle-spinner-color1: rgb(181, 0, 127);
+  --middle-spinner-color2: rgb(163, 181, 0);
+  --outer-spinner-color: rgb(0, 159, 181);
+}
+
+.spinner_preloader {
+  background-color: rgb(255, 255, 255);
+  @extend .preloader-parent;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.spinner_semi_transparent {
+  background-color: #04374644;
+}
+
+.spinner_transparent {
+  background-color: transparent;
+}
+
+.load_spinner {
+  position: relative;
+  @include useSquareSize(var(--load-spinner-size));
+  @include useFlexbox(none);
+  @extend %spinner_preset;
+  animation: addSpinnerAnimation($duration: 2s);
+
+  &::before,
+  &::after {
+    @extend %spinner_preset;
+    content: '';
+    position: absolute;
+    border-width: 2.5px;
+    border-color: transparent var(--outer-spinner-color)
+      var(--outer-spinner-color);
+    animation: addSpinnerAnimation($duration: 1s, $direction: reverse);
+    @include useSquareSize(175%);
+  }
+
+  &::before {
+    animation: addSpinnerAnimation($duration: 1.2s, $direction: reverse);
+    border-color: transparent var(--middle-spinner-color1)
+      var(--middle-spinner-color2);
+    @include useSquareSize(140%);
+  }
+}

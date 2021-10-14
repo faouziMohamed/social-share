@@ -1,0 +1,32 @@
+@use './variables' as v;
+@use './global-mixin' as *;
+@use './functions' as *;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.root {
+  display: flex;
+  align-items: stretch;
+  @include usePosition(absolute, 0, 0);
+  height: 100%;
+  background-color: #f9feff;
+  font-family: v.$primary_font;
+  font-weight: 400;
+  ::selection {
+    background-color: v.$primary_color;
+    color: choose-color(v.$primary_color, #333);
+  }
+}

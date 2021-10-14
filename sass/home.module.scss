@@ -1,0 +1,99 @@
+@use './partials/00-globals/variables' as v;
+@use './partials/00-globals/global-mixin' as *;
+@use './partials/00-globals/functions' as *;
+
+.root {
+  @include useFlexbox(column, none, none);
+  @include useSquareSize(100%);
+  @include usePosition(absolute, 0, 0);
+  overflow: hidden;
+  @extend %useScrollbarStyle;
+}
+
+.navbar {
+  @include useFlexbox(none, space-between, center);
+  background-color: v.$primary_color;
+  &_nav {
+    list-style: none;
+    @include useFlexbox(none, center, center);
+  }
+}
+
+.nav_link {
+  $color: lighten(v.$primary_color, 20%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  font-size: 0.889rem;
+  font-weight: 600;
+  font-family: v.$primary_font;
+  text-decoration: none;
+  color: useLuminance(v.$primary_color, $color);
+  background-color: transparent;
+  min-height: 100%;
+  border: none;
+
+  &:hover {
+    $bg_color: #125;
+    color: useLuminance($bg_color, $color);
+    background-color: $bg_color;
+  }
+}
+.main_container {
+  padding-inline: 1rem;
+  overflow: auto;
+  @include useFlexbox(column, none);
+  gap: 0.5rem;
+}
+
+.leftSide_main_content {
+  display: flex;
+  flex-direction: column;
+}
+
+.pageHeader {
+  padding-block: 1rem 2rem;
+}
+
+.pageTitle {
+  font-size: 2.5rem;
+  color: #024;
+}
+
+.page_subtitle {
+  color: #060;
+}
+
+.homePage_txt {
+  font-size: 0.898rem;
+}
+
+.home_link {
+  $bg_color: v.$primary_color;
+  $color: lighten(v.$primary_color, 20%);
+
+  text-decoration: none;
+  color: useLuminance($bg_color, $color);
+  align-self: center;
+  border-radius: 5rem;
+  margin-block: 1.5rem;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+}
+
+.bg_illustration {
+  width: 100%;
+  min-height: 20rem;
+  position: relative;
+  // @media (min-width:)
+}
+
+.illustration {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

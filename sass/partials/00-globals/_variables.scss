@@ -1,0 +1,24 @@
+@use './functions' as *;
+
+$primary_font: 'Public Sans', sans-serif;
+$secondary_font: 'Roboto', sans-serif;
+
+$left-side-width: 17.5rem;
+$zindex_base_level: 1;
+$zindex_behind: -1;
+$zindex_level_one: 100;
+$zindex_modal_level_one: 200;
+
+$primary_color: #befff3;
+$primary_color_dark: darken($primary_color, 40%);
+$primary_color_darkest: darken($primary_color, 45%);
+$primary_color_darken: darken($primary_color, 15%);
+
+$secondary_color: #017b8e;
+$affirmative_color: createColor($primary_color, -100deg);
+$warning_color: createColor($primary_color, 60deg);
+$danger_color: createColor($primary_color, 120deg);
+$other_color_1: createColor($primary_color, 50deg);
+$link_color: createColor(rgb(185, 4, 116));
+$light_secondary_color: rgba($primary_color, 0.1);
+$light_gray: rgba(230, 230, 230, 1);

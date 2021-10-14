@@ -1,0 +1,104 @@
+@use '../00-globals/global-mixin' as *;
+@use '../00-globals/variables' as v;
+.main_wrapper {
+  @include useFlexbox();
+  @include usePosition(absolute, 0, 0, 0, 0);
+  background-color: rgb(2, 0, 36);
+  background-color: #f5f5f5;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 70% 50%;
+  gap: 0.5rem;
+  overflow: hidden auto;
+
+  @media (min-width: 560px) {
+    justify-content: flex-start;
+  }
+}
+
+.content_root {
+  position: relative;
+  height: 100%;
+  background-color: rgba(5, 0, 94, 0.823);
+  box-shadow: 0 0 0.5rem 0.01rem rgba(1, 2, 56, 0.802);
+  @include useFlexbox();
+  overflow-y: auto;
+  width: 100%;
+  @media (min-width: 340px) {
+    width: calc(100% - 2rem);
+  }
+  @media (min-width: 560px) {
+    width: auto;
+    padding: 0.5rem;
+  }
+}
+
+.main_wrapper.is_Sign_up {
+  .content_root {
+    align-items: flex-start;
+    @media (min-height: 533px) {
+      align-items: center;
+    }
+  }
+}
+.error_found {
+  background-color: #8f0047;
+}
+
+.main_content {
+  border-radius: 0.15rem;
+
+  @include useFlexbox(column);
+  width: 95%;
+  @media (min-width: 560px) {
+    width: 25rem;
+  }
+  background-color: #e6fffc;
+  box-shadow: 0 0 0.5rem 0.02rem #00071887;
+}
+
+.auth_title {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.auth_msg {
+  width: 80%;
+  padding: 0.3rem;
+  font-family: serif;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 0.15rem;
+  margin-block-start: 0.5rem;
+}
+
+.error_msg {
+  background-color: #d3007f;
+  box-shadow: 0 0 0.5rem 0.03rem #8f0047;
+}
+
+.success_msg {
+  background-color: #0e0088;
+  box-shadow: 0 0 0.5rem 0.03rem #00568f;
+}
+
+.auth__text {
+  font-weight: 400;
+  font-size: 0.68rem;
+}
+.auth__link {
+  color: v.$link_color;
+  text-decoration: none;
+  font-weight: 600;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.btn_row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.3em;
+}
