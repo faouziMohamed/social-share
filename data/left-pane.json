@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Home",
+    "path": "/home",
+    "icon": "fad fa-house"
+  },
+  {
+    "name": "Profile",
+    "path": "/profile",
+    "icon": "fad fa-user"
+  },
+  {
+    "name": "Message",
+    "path": "/message",
+    "icon": "fad fa-envelope"
+  },
+  {
+    "name": "Bookmarks",
+    "path": "/bookmarks",
+    "icon": "fad fa-bookmark"
+  },
+  {
+    "name": "Notifications",
+    "path": "/notifications",
+    "icon": "fad fa-bell"
+  },
+  {
+    "name": "Settings",
+    "path": "/settings",
+    "icon": "fad fa-cog"
+  }
+]

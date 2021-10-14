@@ -1,0 +1,93 @@
+{
+  "login": {
+    "metadata": {
+      "title": "Login to your account",
+      "keywords": "login, sign in, account, social share",
+      "description": "Sign in to your account"
+    },
+    "title": "Login to your account",
+    "rowData": [
+      {
+        "type": "text",
+        "name": "username",
+        "labelIcon": "fas fa-user-unlock",
+        "labelText": "Username",
+        "rowIcon": "fas fa-user"
+      },
+      {
+        "type": "password",
+        "name": "password",
+        "labelIcon": "fas fa-key",
+        "labelText": "Password",
+        "rowIcon": "fas fa-eye-slash"
+      }
+    ],
+    "btnsData": [{ "type": "submit", "text": "Sign In" }],
+    "content": {
+      "top": {
+        "msg": "New to Social Share",
+        "link": "/sign-up",
+        "linkText": "create an account"
+      },
+      "bottom": {
+        "msg": "",
+        "link": "/forgot-password",
+        "linkText": "Forgot password"
+      }
+    }
+  },
+  "signup": {
+    "metadata": {
+      "title": "Create a new account",
+      "keywords": "signup, new account, create account, social share",
+      "description": "Create a new account for Social Share"
+    },
+    "title": "Create a new account",
+    "rowData": [
+      {
+        "type": "text",
+        "name": "username",
+        "labelIcon": "fas fa-user-unlock",
+        "labelText": "Username",
+        "rowIcon": "fas fa-user"
+      },
+      {
+        "type": "text",
+        "name": "firstname",
+        "labelIcon": "fas fa-user-alt",
+        "labelText": "First Name",
+        "rowIcon": "fad fa-user-alt"
+      },
+      {
+        "type": "text",
+        "name": "lastname",
+        "labelIcon": "fas fa-user",
+        "labelText": "Last Name",
+        "rowIcon": "fad fa-user"
+      },
+      {
+        "type": "password",
+        "name": "password",
+        "labelIcon": "fas fa-key",
+        "labelText": "Password",
+        "rowIcon": "fas fa-eye-slash"
+      },
+      {
+        "type": "password",
+        "name": "rpassword",
+        "labelIcon": "fas fa-key",
+        "labelText": "Confirm Password",
+        "rowIcon": "fas fa-eye-slash"
+      }
+    ],
+    "btnsData": [{ "type": "submit", "text": "Sign Up" }],
+    "content": {
+      "top": {
+        "msg": "Already have an account?",
+        "link": "/login",
+        "linkText": "Sign In"
+      },
+      "bottom": ""
+    }
+  }
+}
