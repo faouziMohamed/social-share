@@ -47,12 +47,21 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
    ```yaml
    docker run --rm --name mongodb -d -p27017:27017 mongo
    ```
- 1. If the command from the step 2 and 3 finished to run, run the Web server and expose the port 3000 to your host
+ 1. If the command from the step 2 and 3 finished to run, run the Web server and expose the port 3000 to your host. ( ❗ make sure that the port 3000 is not used by another app)
      ```yaml
      docker run -it --rm --name social-share -p3000:3000 socialshare
      ```
+### Stoping the docker containers
 After these steps, open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+- To stop the web server [the docker container] run
+```bash
+docker stop social-share
+```
+- To stop the Mongo server container, run
+```bash
+docker stop mongodb
+```
 
 ## Learn More
 
