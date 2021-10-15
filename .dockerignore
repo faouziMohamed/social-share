@@ -16,3 +16,4 @@ node_modules
 .husky
 docker*
 .github
+.env.local
