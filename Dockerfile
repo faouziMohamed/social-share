@@ -28,7 +28,7 @@ COPY --from=builder  --chown=node:node /home/app/.next ./.next
 COPY --from=builder  --chown=node:node /home/app/next.config.js ./next.config.js
 COPY --chown=node:node .env .env.production ./
 
-EXPOSE 3000
+# EXPOSE 3000
 ENV NEXT_TELEMETRY_DISABLED 1
 ENV NODE_ENV production
 

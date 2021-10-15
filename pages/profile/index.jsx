@@ -16,7 +16,7 @@ export default function App() {
   }
   return (
     <AppLayout user={user}>
-      <h1>Profile</h1>
+      <h1>Feed</h1>
       <Post user={user} />
       <Post user={user} />
       <Post user={user} />

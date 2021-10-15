@@ -2,15 +2,18 @@ import passport from 'passport';
 import LocalStrategy from 'passport-local';
 
 import {
-  findUserById,
+  findUserByIdOpt,
   findUserByUsername,
 } from '../lib/db/queries/user.queries';
 
 passport.serializeUser((user, done) => done(null, user._id));
 
-passport.deserializeUser(async (req, id, done) =>
-  done(null, (await findUserById(id)).toObject()),
-);
+passport.deserializeUser(async (req, id, done) => {
+  const user = await findUserByIdOpt(id);
+  if (!user) throw new Error('User not found');
+
+  return done(null, user);
+});
 
 async function verifyLogin(req, username, password, done) {
   const msgs = { user: 'User not found', pass: 'Incorrect password' };
