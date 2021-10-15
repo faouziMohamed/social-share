@@ -32,7 +32,7 @@
 .invalid_feedback {
   opacity: 0;
   padding-block: 0.5rem 0.5rem;
-  color: v.$danger_color;
+  color: rgb(104, 0, 57);
 }
 
 .is_invalid ~ .invalid_feedback {
