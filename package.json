@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
+    "format": "prettier *.{js,jsx,json,scss}",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -38,7 +39,7 @@
     "prettier": "^2.4.1"
   },
   "lint-staged": {
-    "*.js,jsx,json": "eslint --cache --fix",
-    "*.{js,jsx,json,scss}": "prettier --write --cache"
+    "*.js,jsx,json": "eslint --fix",
+    "*.{js,jsx,json,scss}": "prettier --write "
   }
 }
