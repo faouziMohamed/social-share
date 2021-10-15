@@ -1,159 +1,70 @@
 @use '../00-globals/functions' as f;
 @use '../00-globals/global-mixin' as *;
 @use '../00-globals/variables' as v;
-
-%leftPane_defaultLink {
-  color: #001;
-  text-decoration: none;
-  font-size: 0.98rem;
-  font-family: v.$secondary_font;
-  font-weight: 600;
-}
-$leftPane_bg: lighten(v.$primary_color, 70%) !default;
-
 .root {
   width: 100%;
   overflow: hidden;
   gap: 2px;
   display: flex;
   justify-content: center;
+  background-color: #f0f9ff;
 }
 
 .root_content {
   display: flex;
   width: 100%;
   max-width: 1200px;
-  background-color: #aadaff;
-}
-
-.left_pane {
-  @include usePosition(relative, 0, 0);
-  z-index: 1;
-  transition: all 0.2s ease-in-out;
-  background-color: $leftPane_bg;
-  flex: 1 0 20%;
-  min-width: 250px;
-  height: 100%;
-  transform: translateX(0);
-  box-shadow: 0 0 0.1rem 0.01rem rgba(204, 201, 201, 0.412);
-  overflow-y: auto;
-  // @extend %useScrollbarStyle;
-  scrollbar-width: thin;
-  scrollbar-color: lighten(v.$secondary_color, 55%) $leftPane_bg;
-
-  &__closed {
-    transform: translateX(-100%);
-  }
-  &__link {
-    @extend %leftPane_defaultLink;
-  }
-
-  &__content {
-    height: 100%;
-    @include useFlexbox(column, none);
-    gap: 1rem;
-    padding-block-start: 1rem;
-  }
-}
-
-.name_container {
-  @include useFlexbox(none);
-  width: 100%;
-  padding-inline: 0.5rem;
-
-  @at-root .user_profil_link {
-    $color: lighten(v.$primary_color, 75%);
-    border-radius: 0.5rem;
-    color: #112;
-    background-color: darken($color, 11%);
-    display: flex;
-    justify-content: center;
-    padding: 0.5rem 0.3rem;
-    @include useSquareSize(100%);
-  }
-}
-
-.user_profil {
-  display: block;
-  position: relative;
-  @include useSquareSize(5rem);
-  background-color: rgb(1, 76, 126);
-  clip-path: circle(50% at 50% 50%);
-
-  &__img {
-    box-shadow: 0 0 0.5rem 0.1rem rgb(1, 23, 38);
-    border: 1px solid red;
-  }
-}
-
-.left_pane__nav {
-  @include useFlexbox(column, none, flex-start);
-  width: 100%;
-}
-
-.left_pane__nav__list {
-  @include useFlexbox(column, none, flex-start);
-  list-style-type: none;
-  width: 100%;
-}
-
-.left_pane__nav__item {
-  width: 100%;
-}
-
-.left_pane__nav__link {
-  $color: darken($leftPane_bg, 3%);
-  $links_bg: adjust-hue($color, 1deg);
-  border: none;
-  @include useFlexbox(none, none, center);
-  gap: 0.6rem;
-  width: 100%;
-  padding-block: 0.9rem;
-  padding-inline: 1.5rem 0.3rem;
-  font-size: 1.1rem;
-  position: relative;
-  background-color: transparent;
-  font-family: v.$secondary_font;
-
-  &:hover {
-    background-color: darken($links_bg, 5%);
-  }
-}
-
-.current_page_tab {
-  $color: darken($leftPane_bg, 5%);
-  $links_bg: adjust-hue($color, 1deg);
-  color: v.$secondary_color;
-  background-color: $links_bg;
-
-  &::after {
-    $bd_color: lighten(v.$secondary_color, 15%);
-    content: '';
-    @include usePosition(absolute, 0, none, 0);
-    height: 100%;
-    width: 0.3rem;
-    border: 0.3rem solid;
-    border-color: transparent $bd_color transparent transparent;
-  }
 }
 
 .main_content {
   position: relative;
-  flex: 1 0 80%;
-  @include useFlexbox(column, flex-start, flex-start);
+  flex: 1 0.7 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: fit-content(5rem) 1fr;
   height: 100vh;
-  padding: 0 0.2rem;
-  overflow: auto;
+  width: 100%;
+  overflow: hidden;
+  border-inline: 1px solid #ececec;
+  @media (min-width: 700px) {
+    width: auto;
+  }
+  @media (min-width: 1040px) {
+    width: auto;
+    flex-shrink: 1;
+  }
 }
 
-.map {
+.content_container {
+  $leftPane_bg: lighten(v.$primary_color, 70%) !default;
+
   position: relative;
-  flex: 1 0 100%;
+  flex: 1 0 auto;
   width: 100%;
-  @include useFlexbox(row, center, none);
-  padding-block: 0.3rem;
+  @include useFlexbox(column, flex-start, flex-start);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(0, 190, 165) lighten(v.$secondary_color, 55%);
+  overflow: hidden auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
-.gmaps_container {
-  box-shadow: 0 0 0.5rem 0.1rem rgb(166, 212, 243);
-  flex: 1 0 100%;
+
+.left_pane.left_pane_oppened {
+  ~ .main_content .content_container {
+    padding-inline-start: 9rem;
+    @media (min-width: 400px) {
+      padding-inline-start: 7rem;
+    }
+    @media (min-width: 500px) {
+      padding-inline-start: 5rem;
+    }
+    @media (min-width: 600px) {
+      padding-inline-start: 0;
+    }
+  }
 }

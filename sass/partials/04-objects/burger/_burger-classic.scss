@@ -17,32 +17,23 @@ $burger-primary-color: #001044;
 .burger_menu__label {
   position: relative;
   display: block;
-  width: 3em;
-  padding-left: 0.3em;
+  width: 3.5em;
+  padding: 0.5rem 0.4rem;
+  border-radius: 0.24rem;
   cursor: pointer;
+  background-color: #bde8ee;
 
   &::before,
   &::after {
     display: block;
     height: 4px;
-    background-color: v.$primary_color;
+    background-color: $burger-primary-color;
     transition: transform 0.5s ease-in-out;
     content: '';
   }
 
   &::before {
     box-shadow: 0 10px 0 $burger-primary-color;
-  }
-
-  &:hover::before,
-  &:hover::after,
-  &:focus::before,
-  &:focus::after {
-    background-color: $burger-primary-color;
-  }
-
-  &:hover::before {
-    box-shadow: 0 10px 0 v.$primary_color;
   }
 }
 
@@ -55,13 +46,18 @@ $burger-primary-color: #001044;
     margin-bottom: 1em;
   }
 
-  &:checked + .burger_menu__label::before {
-    box-shadow: none;
-    @include use-TranslateY-rotate();
-  }
+  &:checked {
+    + .burger_menu__label {
+      padding-block: 1rem;
+    }
+    + .burger_menu__label::before {
+      box-shadow: none;
+      @include use-TranslateY-rotate();
+    }
 
-  &:checked + .burger_menu__label::after {
-    @include use-TranslateY-rotate($sign: '-');
+    + .burger_menu__label::after {
+      @include use-TranslateY-rotate($sign: '-');
+    }
   }
 }
 
