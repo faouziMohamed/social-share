@@ -7,11 +7,11 @@ RUN yarn install --immutable
 
 # Rebuild the source code only when needed
 FROM node:14-alpine as builder
-USER node
+# USER node
 WORKDIR /home/app
-ENV NODE_ENV production
+# ENV NODE_ENV production
 COPY . .
-COPY --from=deps --chown=node:node /home/app/node_modules ./node_modules
+COPY --from=deps  /home/app/node_modules ./node_modules
 RUN yarn build && yarn install --production --immutable --ignore-scripts --prefer-offline
 
 
@@ -25,7 +25,7 @@ COPY --from=builder  --chown=node:node /home/app/package.json /home/app/yarn.loc
 COPY --from=builder  --chown=node:node /home/app/node_modules ./node_modules
 COPY --from=builder  --chown=node:node /home/app/public ./public
 COPY --from=builder  --chown=node:node /home/app/.next ./.next
-COPY --from=builder  --chown=node:node /home/app/next.config.js  ./
+COPY --from=builder  --chown=node:node /home/app/next.config.js ./next.config.js
 COPY --chown=node:node .env .env.production ./
 
 EXPOSE 3000
