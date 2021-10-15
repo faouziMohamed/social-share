@@ -14,11 +14,3 @@ button:disabled {
   pointer-events: none;
   opacity: 0.7;
 }
-
-.btn {
-  padding: 0.57rem 1rem;
-  width: max-content;
-  border-radius: 0.2rem;
-  cursor: pointer;
-  @include createButtonTheme(v.$primary_color);
-}

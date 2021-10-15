@@ -1,6 +1,5 @@
 @use './variables' as v;
 @use './global-mixin' as *;
-@use './functions' as *;
 
 *,
 *::after,
@@ -27,6 +26,6 @@ html {
   font-weight: 400;
   ::selection {
     background-color: v.$primary_color;
-    color: choose-color(v.$primary_color, #333);
+    color: #333;
   }
 }
