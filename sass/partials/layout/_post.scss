@@ -9,10 +9,8 @@
   background-color: rgba(234, 250, 242, 0);
   display: flex;
   flex-direction: column;
-  // flex-basis: 100%;
   width: 90%;
   max-width: 35rem;
-  // min-width: 24.1875rem;
   min-width: 18rem;
   border-radius: 0.3rem;
   box-shadow: 0 0 0.5rem 0.05rem rgba(1, 22, 36, 0.212);
@@ -43,6 +41,12 @@
   height: 2.6rem;
   position: relative;
   clip-path: circle(50% at 50% 50%);
+}
+
+.post_owner_avatar_link {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .post_details {
@@ -249,15 +253,37 @@
   border-inline-start: 2px solid blue;
 }
 
-.reaction_count {
-  font-size: 0.88rem;
+.stats {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-size: 0.85rem;
+  font-family: 'Titillium Web', Merriweather, Times, serif;
+  color: rgb(76, 85, 94);
+  font-weight: bold;
 }
 
 .stats_count {
   display: flex;
   align-items: center;
   gap: 0.15rem;
+}
+
+.likes {
+  color: rgb(0, 94, 148);
+}
+
+.dislikes {
+  color: rgb(190, 4, 144);
+}
+
+.comments {
+  color: rgb(0, 78, 102);
+}
+
+.shares {
+  color: rgb(6, 39, 99);
+}
+.views {
+  color: rgb(158, 1, 75);
 }
