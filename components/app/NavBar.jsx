@@ -26,7 +26,7 @@ export function UserProfilButton({ user }) {
       <Image
         alt='User profile picture'
         className={style.user_profil_thumb}
-        src='/images/users/u-01.svg'
+        src='/images/users/u-0.svg'
         title="Faouzi Mohamed's profile picture"
         layout='fill'
       />
@@ -50,7 +50,7 @@ function UserProfilCard(user) {
         <figure className={style.user_figure}>
           <div className={style.user_picture}>
             <Image
-              src='/images/users/u-01.svg'
+              src='/images/users/u-0.svg'
               alt='User profile picture'
               className={style.user_picture_img}
               width='138'

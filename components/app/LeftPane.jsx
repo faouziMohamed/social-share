@@ -8,11 +8,7 @@ import { useUser } from '../../lib/hooks';
 import style from '../../sass/app.module.scss';
 import FuturaSpinner from '../spinners/futura';
 
-export default function LeftPane({
-  currentTab = 'Home',
-  showLeftPane,
-  // setShowLeftPane,
-}) {
+export default function LeftPane({ currentTab = 'Home', showLeftPane }) {
   const [user, { loading, mutate }] = useUser();
   const paneRef = useLeftPane(showLeftPane);
   if (loading) return <FuturaSpinner />;
@@ -26,7 +22,7 @@ export default function LeftPane({
             <Link href='/home'>
               <a className={`${style.user_profil} ${style.left_pane__link}`}>
                 <Image
-                  src='/images/users/u-01.svg'
+                  src='/images/users/u-0.svg'
                   alt={`${user.username} profil Picture`}
                   layout='fill'
                   className={style.user_profil__img}

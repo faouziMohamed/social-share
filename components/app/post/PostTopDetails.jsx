@@ -65,7 +65,7 @@ function AuthorDetails({ user }) {
         </a>
       </Link>
       <small className={style.post_date}>
-        <time dateTime={'12/12/2013 14h33'}>12/12/2013</time>
+        <time dateTime={'12/12/2013 14h33'}>{user.date}</time>
       </small>
     </div>
   );
@@ -79,7 +79,7 @@ function AuthorAvatar({ user }) {
         className={style.post_owner_avatar_link}
       >
         <Image
-          src='/images/users/u-01.svg'
+          src={user.avatar}
           alt={`${user.username} profil picture`}
           className={style.post_owner_img}
           layout='fill'
