@@ -1,6 +1,6 @@
 import style from '../../../sass/app.module.scss';
+import PostTopDetails from './post-top-details';
 import PostBody from './PostBody';
-import PostTopDetails from './PostTopDetails';
 
 export default function Post({ user, post }) {
   const { stats, body } = post;

@@ -1,3 +1,4 @@
+import ms from 'ms';
 import nc from 'next-connect';
 
 import connectDB from '../lib/db/config.db';
@@ -8,7 +9,7 @@ export const configSession = session({
   name: 'sc-user',
   secret: process.env.SESSION_SECRET,
   cookie: {
-    maxAge: 1000 * 60 * 60 * 24 * 7,
+    maxAge: ms('7d'),
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     path: '/',

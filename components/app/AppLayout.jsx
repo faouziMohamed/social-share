@@ -25,6 +25,7 @@ export default function AppLayout({ children }) {
           <NavBar {...{ burgerMenuPros, user }} />
           <main className={style.content_container}>{children}</main>
         </div>
+
         <RightPane user={user} />
       </div>
     </div>

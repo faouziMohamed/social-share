@@ -12,7 +12,7 @@ handler.post(async (req, res) => {
     if (!username || !password || !firstname || !lastname) {
       throw new Error('Please fill out the registration form');
     }
-    const uLc = username.toLowerCase();
+    const uLc = username.trim().toLowerCase();
     const existsUser = await User.exists({ username: uLc });
     if (existsUser) throw new Error('User already exists');
     const data = { firstname, lastname, username, password };

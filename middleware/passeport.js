@@ -14,7 +14,7 @@ passport.deserializeUser(async (req, id, done) =>
 
 async function verifyLogin(req, username, password, done) {
   const msgs = { user: 'User not found', pass: 'Incorrect password' };
-  const user = await findUserByUsername(username.toLowerCase(), true);
+  const user = await findUserByUsername(username.trim().toLowerCase(), true);
   if (!user) return done(null, false, { error: msgs.user });
   const isMatch = await user.comparePassword(password);
   if (!isMatch) return done(null, false, { error: msgs.pass });

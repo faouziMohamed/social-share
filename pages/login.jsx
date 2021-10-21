@@ -73,8 +73,7 @@ export async function logInUser(body) {
 }
 
 function createRequestBody(e) {
-  return {
-    username: e.currentTarget.username.value.toLowerCase(),
-    password: e.currentTarget.password.value,
-  };
+  const username = e.target.username.value.trim().toLowerCase();
+  const password = e.target.password.value;
+  return { username, password };
 }
