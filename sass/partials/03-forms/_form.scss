@@ -76,6 +76,29 @@
   }
 }
 
+.form_row__model_article {
+  &,
+  :is(&:hover, &:focus-within) {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    border-block-end: 1px solid gray;
+    border-radius: 0;
+  }
+  &:not(:first-of-type) {
+    margin-block-start: 0.2rem;
+  }
+  .form_row__btn {
+    border-inline-start: 1px solid #cfcfd0;
+  }
+  &:focus-within {
+    .form_row__btn {
+      border-inline-start: 2px solid #0035bb;
+      margin-block: 0.3rem;
+    }
+  }
+}
+
 .form_row__label {
   display: flex;
   align-items: center;
@@ -147,4 +170,8 @@
   @include useFlexbox(row, center, none);
   width: 100%;
   gap: 1rem;
+}
+
+.btn_radius_minimal {
+  border-radius: 0.5rem;
 }

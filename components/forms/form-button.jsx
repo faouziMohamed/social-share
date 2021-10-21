@@ -1,3 +1,5 @@
+import { forwardRef } from 'react';
+
 import style from '../../sass/auth-style.module.scss';
 
 export function AddFormButtons({ btnsData }) {
@@ -9,15 +11,20 @@ export function AddFormButtons({ btnsData }) {
     </div>
   );
 }
-export default function FormButton({ type, text, borderRadius }) {
+
+function Button({ type, text, ref = null, borderRadius, onClick = () => {} }) {
   let btnCls = `${style.btn} ${style.btn_wide} ${style.btn_submit} `;
   const radiusType = {
     minimal: style.btn_radius_minimal,
   };
   btnCls += radiusType[borderRadius] || '';
   return (
-    <button className={btnCls} type={type}>
+    <button className={btnCls} type={type} onClick={onClick} ref={ref}>
       {text}
     </button>
   );
 }
+
+const FormButton = forwardRef((props, ref) => Button({ ...props, ref }));
+FormButton.displayName = 'FormButton';
+export default FormButton;

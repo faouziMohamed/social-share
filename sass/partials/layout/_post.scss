@@ -1,3 +1,5 @@
+@use '../00-globals/variables' as v;
+
 .post_wrapper {
   width: 100%;
   display: flex;
@@ -5,6 +7,7 @@
   background-color: rgba(255, 255, 255, 0);
   padding-block: 0.5rem;
 }
+
 .post {
   background-color: rgba(234, 250, 242, 0);
   display: flex;
@@ -33,20 +36,16 @@
   flex: 1;
 }
 
-.post_owner_avatar {
+.post_owner_avatar_link {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 2.6rem;
-  height: 2.6rem;
   position: relative;
   clip-path: circle(50% at 50% 50%);
-}
-
-.post_owner_avatar_link {
   position: relative;
-  width: 100%;
-  height: 100%;
+  width: 2.6rem;
+  height: 2.6rem;
+  flex-shrink: 0.2;
 }
 
 .post_details {
@@ -286,4 +285,185 @@
 }
 .views {
   color: rgb(158, 1, 75);
+}
+
+.cursor_pointer {
+  cursor: pointer;
+}
+
+.new_post_prompt {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 0.5rem;
+  cursor: pointer;
+  width: 90%;
+  max-width: 35rem;
+  min-width: 18rem;
+  position: relative;
+  border-radius: 0.6rem;
+  border: 1px solid transparent;
+  transition: transform 50ms ease-in-out;
+  transform: scale(1);
+  box-shadow: 0 0 0.3rem 0.05rem rgba(105, 105, 105, 0.212);
+
+  &:hover {
+    transform: scale(1.01);
+
+    box-shadow: 0 0 0.9rem 0.05rem rgba(129, 153, 153, 0.349);
+    border-color: rgb(231, 233, 233);
+  }
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    border-radius: 0.6rem;
+  }
+}
+
+.modal_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(202, 202, 202, 0.568);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 200;
+}
+
+.prevent_scroll {
+  overflow: hidden;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+
+  background-color: red;
+  width: 84%;
+  max-width: 40rem;
+  border-radius: 0.3rem;
+  background-color: rgb(252, 255, 253);
+  box-shadow: 0 0 0.3rem 0.05rem rgba(105, 105, 105, 0.212);
+  min-height: 16rem;
+}
+
+.modal_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0.5rem 0.5rem;
+  border-block-end: 1px solid rgba(218, 213, 213, 0.659);
+}
+
+.close_btn {
+  position: absolute;
+  right: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(230, 230, 230);
+  border-radius: 50%;
+  color: rgb(89, 89, 89);
+  width: 1.6rem;
+  height: 1.6rem;
+  border: none;
+
+  &:hover,
+  &:focus {
+    color: black;
+    background-color: rgb(199, 199, 199);
+    box-shadow: 0 0 0.1rem rgba(105, 105, 105, 0.212);
+  }
+  &:active {
+    background-color: rgb(143, 143, 143);
+  }
+}
+
+.bg_inherit {
+  background-color: inherit;
+}
+
+.modal_body {
+  flex: 1 1 auto;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.modal_textarea {
+  color: black;
+  width: 100%;
+  border: none;
+  height: 200px;
+  resize: none;
+  display: block;
+  outline: none;
+  padding: 5px;
+  font-size: 2em;
+  font-family: ubuntu;
+  background-color: transparent;
+}
+
+.feedback_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  font-size: 0.88rem;
+  font-family: 'Titillium Web', Merriweather, Times, serif;
+  position: relative;
+  * {
+    color: inherit;
+  }
+}
+
+.feedback_error {
+  background-color: rgb(179, 57, 0);
+}
+
+.postFeedback_hint {
+  color: rgb(229, 255, 0);
+  font-weight: 900;
+}
+
+.feedback_info {
+  background-color: rgb(0, 129, 151);
+}
+
+.btn_close_feedback {
+  padding: 0;
+
+  &,
+  &:hover,
+  &:focus {
+    color: inherit;
+    border: none;
+    padding: 0;
+    font-weight: bold;
+    background-color: rgba(22, 121, 228, 0);
+  }
+  &:hover,
+  &:focus {
+    color: rgb(215, 234, 255);
+    background-color: rgba(0, 7, 36, 0.289);
+  }
+  &:active {
+    color: rgb(215, 234, 255);
+    background-color: rgba(0, 7, 36, 0.768);
+  }
 }

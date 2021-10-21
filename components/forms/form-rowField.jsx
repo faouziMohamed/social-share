@@ -9,6 +9,7 @@ export default function FormRowField({
   disabled = false,
   cursorType = '',
   model = 'initial',
+  required = false,
 }) {
   let rowBtnCls = `${style.form_row__btn} ${style.no_blinking} `;
   rowBtnCls +=
@@ -34,6 +35,7 @@ export default function FormRowField({
         type={type}
         name={name}
         id={name}
+        required={required}
         className={`${style.form_row__input} ${_cursorType}`}
         placeholder=' '
         autoComplete='off'

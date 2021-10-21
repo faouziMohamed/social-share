@@ -7,7 +7,7 @@ import LeftPane from './LeftPane';
 import { NavBar } from './NavBar';
 import RightPane from './RightPane';
 
-export default function AppLayout({ children }) {
+export default function AppLayout({ children, modalOppened }) {
   const [user, { loading }] = useUser();
   const [showLeftPane, setShowLeftPane] = useState(false);
   if (loading) return <FuturaSpinner />;
@@ -23,7 +23,13 @@ export default function AppLayout({ children }) {
         <LeftPane {...sidenavPros} />
         <div className={style.main_content}>
           <NavBar {...{ burgerMenuPros, user }} />
-          <main className={style.content_container}>{children}</main>
+          <main
+            className={`${style.content_container} ${
+              modalOppened && style.prevent_scroll
+            }`}
+          >
+            {children}
+          </main>
         </div>
 
         <RightPane user={user} />
