@@ -262,10 +262,22 @@
   font-weight: bold;
 }
 
-.stats_count {
-  display: flex;
-  align-items: center;
-  gap: 0.15rem;
+.likeBtn {
+  &.activated {
+    color: rgb(0, 94, 148);
+  }
+}
+
+.dislikeBtn {
+  &.activated {
+    color: rgb(190, 4, 144);
+  }
+}
+
+.commentBtn {
+  &.activated {
+    color: rgb(0, 78, 102);
+  }
 }
 
 .likes {
@@ -283,12 +295,15 @@
 .shares {
   color: rgb(6, 39, 99);
 }
-.views {
-  color: rgb(158, 1, 75);
-}
 
 .cursor_pointer {
   cursor: pointer;
+}
+
+.stats_count {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
 }
 
 .new_post_prompt {

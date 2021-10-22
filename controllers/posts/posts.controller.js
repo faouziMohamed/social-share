@@ -7,13 +7,14 @@ import PostError from '../../lib/errors/post-error';
 import { removeExtraSpaces, removeTrailingSlash } from '../../lib/utils';
 
 export function readRequestBodyPOST(req) {
-  const { title: t, body: b = '', url: u, author } = req.body;
+  const { author, ...post } = req.body;
   if (String(req?.user._id) !== String(author)) {
     const message = 'You are not authorized to add this post';
     throw new PostError({ message, code: 401 });
   }
 
-  const [title, body, url] = [t, b, removeTrailingSlash(u)]
+  const { title: ttle, text: txt, url: link, urlAltText: linkTxt } = post;
+  const [title, text, url, urlAltText] = [ttle, txt, link, linkTxt]
     .map(removeExtraSpaces)
     .map((str) => str.trim());
 
@@ -24,17 +25,17 @@ export function readRequestBodyPOST(req) {
   if (!url) {
     throw new PostError({ message: 'URL is required', code: 400 });
   }
-  return { title, body, url, author };
+  return { title, text, url: removeTrailingSlash(url), urlAltText, author };
 }
 
 export async function addPost(req) {
-  const { title, body, url, author } = readRequestBodyPOST(req);
+  const { title, text, url, urlAltText, author } = readRequestBodyPOST(req);
   if (await existsPostByUrl(url)) {
     const post = await findPostByUrl(url);
     const message = `Post with URL ${url} already exists`;
     throw new PostError({ message, code: 409, hint: `/post/${post._id}` });
   }
 
-  const { post } = await createPost({ title, body, url, author });
+  const { post } = await createPost({ title, text, url, urlAltText, author });
   return { postId: post._id };
 }
