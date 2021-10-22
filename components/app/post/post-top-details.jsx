@@ -3,14 +3,14 @@ import Link from 'next/link';
 import style from '../../../sass/app.module.scss';
 import UserAvatar from '../user-avatar';
 
-export default function PostTopDetails({ user }) {
+export default function PostTopDetails({ metadata }) {
   return (
     <div className={style.post_top_details}>
       <div className={style.post_data}>
-        <AuthorAvatar user={user} />
-        <AuthorDetails user={user}>
+        <AuthorAvatar metadata={metadata} />
+        <AuthorDetails user={metadata}>
           <small className={style.post_date}>
-            <time>{user.date}</time>
+            <time>{metadata.date}</time>
           </small>
         </AuthorDetails>
       </div>
@@ -73,10 +73,10 @@ export function AuthorDetails({ user, children }) {
   );
 }
 
-function AuthorAvatar({ user }) {
+function AuthorAvatar({ metadata }) {
   return (
     <div className={style.post_owner_avatar}>
-      <UserAvatar user={user} />
+      <UserAvatar user={metadata} />
     </div>
   );
 }

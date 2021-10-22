@@ -2,13 +2,12 @@ import style from '../../../sass/app.module.scss';
 import PostTopDetails from './post-top-details';
 import PostBody from './PostBody';
 
-export default function Post({ user, post }) {
+export default function Post({ metadata, post }) {
   const { stats, body } = post;
-
   return (
     <div className={style.post_wrapper}>
       <div className={style.post}>
-        <PostTopDetails user={user} />
+        <PostTopDetails metadata={metadata} />
         <div className={style.post_content}>
           <PostBody body={body} />
           <PostStats stats={stats} />

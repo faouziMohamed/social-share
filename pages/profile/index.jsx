@@ -8,8 +8,7 @@ import NewPostModal from '../../components/app/post/new-post-modal';
 import NewPostPrompt from '../../components/app/post/new-post-prompt';
 import Post from '../../components/app/post/post';
 import FuturaSpinner from '../../components/spinners/futura';
-import { useUser } from '../../lib/hooks';
-import { generateDate, randomName, readUserPosts } from '../../lib/utils/utils';
+import { useCurrentUserPosts, useUser } from '../../lib/hooks';
 
 export default function App() {
   const [user, { loading }] = useUser();
@@ -34,8 +33,6 @@ export default function App() {
     return <FuturaSpinner />;
   }
   user.avatar = '/images/users/u-0.svg';
-  // user.date = dayjs().to(Date.now());
-  posts.current = readUserPosts({ user, size: 50 }) || [];
   dayjs.extend(relativeTime);
 
   const layoutProps = { modalOppened: showNewPostModal };
@@ -47,21 +44,24 @@ export default function App() {
       <h1>Feeds</h1>
       {showNewPostModal && <NewPostModal {...modalProps} />}
       <NewPostPrompt {...promptProps} />
-      <FeedMemo posts={posts} />
+      <FeedMemo feeds={posts} />
     </AppLayout>
   );
 }
 
-function Feeds({ posts }) {
-  return posts.current.map((post, index) => {
-    const num = Math.floor(Math.random() * 5);
-    const u = {
-      username: 'faouzi',
-      firstname: randomName(),
-      lastname: randomName(),
-      date: dayjs().to(generateDate()),
-      avatar: `/images/users/u-${num}.png`,
-    };
-    return <Post key={`${post.body.title}-${index}`} user={u} post={post} />;
+function Feeds() {
+  const [userData, { loading }] = useCurrentUserPosts();
+  if (loading) return <FuturaSpinner />;
+  if (!loading && !userData) return null;
+  const { posts = [] } = userData;
+  return posts.map((post, index) => {
+    post.metadata.date = dayjs().to(new Date(post?.metadata?.dateAdded));
+    return (
+      <Post
+        key={`${post.body.title}-${index}`}
+        metadata={post.metadata}
+        post={post}
+      />
+    );
   });
 }

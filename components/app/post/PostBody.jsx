@@ -6,13 +6,13 @@ export default function PostBody({ body }) {
       <h3 className={style.post_content_title}>{body.title}</h3>
       <div className={style.post_content_body}>
         <div className={style.post_url}>
-          {body.link ? (
-            <a href={body.link}>{body.linkText || body.link}</a>
+          {body.url ? (
+            <a href={body.url}>{body.urlAltText || body.url}</a>
           ) : null}
         </div>
-        <div className={style.post_content_text}>
-          {body.content ? body.content : null}
-        </div>
+        {body.text && (
+          <div className={style.post_content_text}>{body.text}</div>
+        )}
       </div>
     </section>
   );

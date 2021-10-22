@@ -9,3 +9,10 @@ export function useUser() {
   const user = data?.user;
   return [user, { mutate, loading }];
 }
+
+export const useFetch = (url) => {
+  const { data, error, mutate } = useSWR(url, fetcher);
+  return [data, { loading: !data, error, mutate }];
+};
+
+export const useCurrentUserPosts = () => useFetch('/api/posts/user');

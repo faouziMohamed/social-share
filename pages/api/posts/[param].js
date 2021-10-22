@@ -12,7 +12,7 @@ const handler = nextConnect().use(auth);
 
 handler.get(async (req, res) => {
   try {
-    const { param: id } = req.query;
+    const { param: id = req?.user._id } = req.query;
     if (!id) {
       const message = 'A post ID is required, but nothing was provided';
       throw new PostError({ message, code: 400 });
@@ -45,7 +45,7 @@ function handleErrors(e, res) {
   let error = e;
   if (!(e instanceof PostError)) {
     error = new PostError({
-      message: 'Bad request, verify your parms and retry later',
+      message: 'Bad request, verify your params and retry later',
       code: 400,
     });
     // eslint-disable-next-line no-console

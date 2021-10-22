@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useRef, useState } from 'react';
 
 import PostError from '../../../lib/errors/post-error';
+import { useCurrentUserPosts } from '../../../lib/hooks';
 import style from '../../../sass/app.module.scss';
 import FormButton from '../../forms/form-button';
 import FormRowField from '../../forms/form-rowField';
@@ -115,17 +116,26 @@ export function NewPostForm({
       type: 'url',
       required: true,
     },
+    {
+      labelText: 'Name of the url',
+      labelIcon: 'fas fa-stream',
+      rowIcon: 'fas fa-comment-alt-lines',
+      name: 'urlAltText',
+      type: 'text',
+    },
   ];
+  const [, { mutate }] = useCurrentUserPosts();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { title: t, url: l, body: b } = e.target;
-      const [title, url, body = ''] = [t.value.trim(), l.value.trim(), b.value];
+      const title = e.target.title.value.trim();
+      const url = e.target.url.value.trim();
+      const text = e.target.text.value.trim();
+      const urlAltText = e.target.urlAltText.value.trim();
 
       if (!title || !url) return;
-
-      const post = { title, url, body, author: user.id };
+      const post = { title, url, text, urlAltText, author: user.id };
       const { postId, error, hint } = await postJSONData({
         data: post,
         url: '/api/posts/add',
@@ -137,6 +147,8 @@ export function NewPostForm({
         const cachedPosts = JSON.parse(sessionStorage.getItem('posts')) || [];
         post.postId = postId;
         cachedPosts.push(post);
+        sessionStorage.setItem('posts', JSON.stringify(cachedPosts));
+        mutate(post);
         setUpdateFeed(true);
         setOpenModal(false);
       }
@@ -155,7 +167,7 @@ export function NewPostForm({
       <textarea
         className={style.modal_textarea}
         rows='1'
-        name='body'
+        name='text'
         placeholder={`What's on your mind, ${user.firstname}`}
         aria-label='Source text'
       />
