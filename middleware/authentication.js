@@ -1,25 +1,20 @@
-import ms from 'ms';
+import helmet from 'helmet';
 import nc from 'next-connect';
 
-import connectDB from '../lib/db/config.db';
-import session from '../lib/session.lib';
+import {
+  configSession,
+  connectDatabase,
+  cors,
+  headers,
+} from './init-middleware';
 import passport from './passeport';
 
-export const configSession = session({
-  name: 'sc-user',
-  secret: process.env.SESSION_SECRET,
-  cookie: {
-    maxAge: ms('7d'),
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    path: '/',
-    sameSite: 'lax',
-  },
-});
-
 const auth = nc()
+  .use(cors())
+  .use(headers())
+  .use(helmet())
   .use(configSession)
-  .use(connectDB((req, res, next) => next()))
+  .use(connectDatabase())
   .use(passport.initialize())
   .use(passport.session());
 
