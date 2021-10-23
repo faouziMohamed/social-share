@@ -12,7 +12,7 @@ const handler = nextConnect().use(auth);
 
 handler.get(async (req, res) => {
   try {
-    const { param: id = req?.user._id } = req.query;
+    const { param: id } = req.query;
     if (!id) {
       const message = 'A post ID is required, but nothing was provided';
       throw new PostError({ message, code: 400 });
@@ -41,7 +41,7 @@ handler.post(async (req, res) => {
   }
 });
 export default handler;
-function handleErrors(e, res) {
+export function handleErrors(e, res) {
   let error = e;
   if (!(e instanceof PostError)) {
     error = new PostError({

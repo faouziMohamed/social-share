@@ -1,14 +1,15 @@
 import nextConnect from 'next-connect';
 
-import { findPostsByUserID } from '../../../../lib/db/queries/post.queries';
+import { findPostsByUserId } from '../../../../lib/db/queries/post.queries';
 import { existsUserById } from '../../../../lib/db/queries/user.queries';
 import PostError from '../../../../lib/errors/post-error';
 import auth from '../../../../middleware/authentication';
+import { handleErrors } from '../[param]';
 
 const handler = nextConnect().use(auth);
 handler.get(async (req, res) => {
   try {
-    const { userId = req?.user?._id } = req.query;
+    const { userId = req?.user?._id || '' } = req.query;
     if (!userId) {
       const msg =
         'User id is required or you need to connect to get your posts';
@@ -18,14 +19,10 @@ handler.get(async (req, res) => {
       const message = 'Cannot find post for user which does not exist';
       throw new PostError({ message, code: 404 });
     }
-    const posts = await findPostsByUserID(userId);
+    const posts = await findPostsByUserId(userId);
     res.status(200).json({ posts });
   } catch (e) {
-    if (e instanceof PostError) {
-      res.status(e.statusCode).json(e.toResponse());
-      return;
-    }
-    res.status(e?.statusCode || 400).json({ error: e.message });
+    handleErrors(e, res);
   }
 });
 

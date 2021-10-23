@@ -1,1 +1,1 @@
-export { default } from './user/index';
+export { default } from './[param]';

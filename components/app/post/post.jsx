@@ -6,17 +6,18 @@ import PostActionBtns from './post-action-btns';
 import PostTopDetails from './post-top-details';
 import PostBody from './PostBody';
 
-export default function Post({ metadata, post }) {
-  const { stats: s, body } = post;
+export default function Post({ post }) {
+  const { stats: s, body: postBody, metadata, reactions } = post;
   const { statsSetter, ...stats } = useStats(s);
+  const pActionProps = { statsSetter, reactions, metadata };
   return (
     <div className={style.post_wrapper}>
       <div className={style.post}>
         <PostTopDetails metadata={metadata} />
         <div className={style.post_content}>
-          <PostBody body={body} />
+          <PostBody body={postBody} />
           <PostStats stats={stats} />
-          <PostActionBtns statsSetter={statsSetter} />
+          <PostActionBtns {...pActionProps} />
           <PostComments />
         </div>
       </div>
