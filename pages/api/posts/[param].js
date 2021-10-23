@@ -1,3 +1,4 @@
+import { isValidObjectId } from 'mongoose';
 import nextConnect from 'next-connect';
 
 import { addPost } from '../../../controllers/posts/posts.controller';
@@ -17,13 +18,18 @@ handler.get(async (req, res) => {
       const message = 'A post ID is required, but nothing was provided';
       throw new PostError({ message, code: 400 });
     }
+    if (!isValidObjectId(id)) {
+      const message = `The provided post ID '${id}' is not valid`;
+      const hint = 'Please provide a valid post ID';
+      throw new PostError({ message, code: 400, hint });
+    }
 
     if (!(await existsPostById(id))) {
       const message = `Post with ID ${id} does not exist`;
       throw new PostError({ message, code: 404 });
     }
-    const data = await findPostById(id);
-    res.status(200).json({ data });
+    const [post] = await findPostById(id);
+    res.status(200).json({ post });
   } catch (e) {
     handleErrors(e, res);
   }
