@@ -76,7 +76,8 @@
   }
 }
 
-.form_row__model_article {
+.form_row__model_article,
+.form_row__model_search {
   &,
   :is(&:hover, &:focus-within) {
     background-color: inherit;
@@ -96,6 +97,20 @@
       border-inline-start: 2px solid #0035bb;
       margin-block: 0.3rem;
     }
+  }
+}
+.form_row__model_search {
+  &,
+  :is(&:hover, &:focus-within) {
+    background-color: inherit;
+    // border: none;
+    outline: none;
+    border: 1.9px solid gray;
+    border-radius: 0.6rem;
+  }
+  &:focus-within {
+    border: 1px solid #00bbd465;
+    background-color: rgba(225, 254, 255, 0.26);
   }
 }
 
@@ -123,6 +138,10 @@
   border: none;
   background-color: transparent;
   padding-block: 0.5rem 0.2rem;
+
+  &.flexible {
+    flex-shrink: 1;
+  }
 
   /* Chrome, Safari, Edge, Opera */
   &::-webkit-outer-spin-button,

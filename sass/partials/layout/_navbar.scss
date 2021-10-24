@@ -6,18 +6,19 @@
 }
 
 .main_page__navbar {
-  @include useFlexbox(none, space-between);
+  @include useFlexbox(none, space-around, center);
   width: 100%;
   padding-inline: 0.3rem;
   background-color: #f0f9ff;
   border-bottom: 1px solid rgba(v.$primary_color_darkest, 0.04);
+  gap: 0.5rem;
 }
 
 .top_navbar {
   @include useFlexbox($jt: flex-end, $al: center);
   padding-block: 0.3rem;
   list-style: none;
-  gap: 0.5rem;
+  gap: 1rem;
 
   &__btn {
     @include useSquareSize(2.2rem);

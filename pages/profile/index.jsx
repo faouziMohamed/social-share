@@ -56,12 +56,6 @@ function Feeds() {
   const { posts = [] } = userData;
   return posts.map((post, index) => {
     post.metadata.date = dayjs().to(new Date(post?.metadata?.dateAdded));
-    return (
-      <Post
-        key={`${post.body.title}-${index}`}
-        metadata={post.metadata}
-        post={post}
-      />
-    );
+    return <Post key={`${post.body.title}-${index}`} post={post} />;
   });
 }

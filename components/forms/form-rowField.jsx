@@ -10,6 +10,7 @@ export default function FormRowField({
   cursorType = '',
   model = 'initial',
   required = false,
+  flexible = false,
 }) {
   let rowBtnCls = `${style.form_row__btn} ${style.no_blinking} `;
   rowBtnCls +=
@@ -26,6 +27,7 @@ export default function FormRowField({
     initial: style.form_row__model_initial,
     article: style.form_row__model_article,
     edit: style.form_row__model_edit,
+    search: style.form_row__model_search,
   };
   const _cursorType = cursors[cursorType] || '';
   const _modelType = modelType[model] || '';
@@ -36,7 +38,9 @@ export default function FormRowField({
         name={name}
         id={name}
         required={required}
-        className={`${style.form_row__input} ${_cursorType}`}
+        className={`${style.form_row__input} ${_cursorType} ${
+          flexible && style.flexible
+        }`}
         placeholder=' '
         autoComplete='off'
         disabled={!!disabled}

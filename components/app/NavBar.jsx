@@ -1,13 +1,24 @@
 import Image from 'next/image';
 
 import style from '../../sass/app.module.scss';
+import FormRowField from '../forms/form-rowField';
 import BurgerMenu from './BurgerMenu';
 
 export function NavBar({ burgerMenuPros, user }) {
   return (
     <div className={style.main_page__navbar}>
       <BurgerMenu {...burgerMenuPros} />
-
+      <div className={style.search_prompt}>
+        <FormRowField
+          type='text'
+          name='feed'
+          labelIcon=''
+          rowIcon='fas fa-search'
+          labelText={`Search user`}
+          model='search'
+          flexible
+        />
+      </div>
       <ul className={style.top_navbar}>
         <li className={style.top_navbar__item}>
           <NotificationButton />

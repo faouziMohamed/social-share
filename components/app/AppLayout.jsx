@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { useUser } from '../../lib/hooks';
 import style from '../../sass/app.module.scss';
+import HeadMeta from '../head';
 import FuturaSpinner from '../spinners/futura';
 import LeftPane from './LeftPane';
 import { NavBar } from './NavBar';
@@ -16,24 +17,32 @@ export default function AppLayout({ children, modalOppened }) {
     setShowLeftPane,
   };
   const burgerMenuPros = { setShowLeftPane };
-
+  const pageData = {
+    title: 'Home | Social share',
+    description: 'Social share',
+    keywords: 'Social share, social network, urls',
+    path: ['/home', '/'],
+  };
   return (
-    <div className={`root ${style.root}`}>
-      <div className={style.root_content}>
-        <LeftPane {...sidenavPros} />
-        <div className={style.main_content}>
-          <NavBar {...{ burgerMenuPros, user }} />
-          <main
-            className={`${style.content_container} ${
-              modalOppened && style.prevent_scroll
-            }`}
-          >
-            {children}
-          </main>
-        </div>
+    <>
+      <HeadMeta pageData={pageData} />
+      <div className={`root ${style.root}`}>
+        <div className={style.root_content}>
+          <LeftPane {...sidenavPros} />
+          <div className={style.main_content}>
+            <NavBar {...{ burgerMenuPros, user }} />
+            <main
+              className={`${style.content_container} ${
+                modalOppened && style.prevent_scroll
+              }`}
+            >
+              {children}
+            </main>
+          </div>
 
-        <RightPane user={user} />
+          <RightPane user={user} />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
