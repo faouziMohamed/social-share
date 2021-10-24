@@ -6,7 +6,7 @@
 }
 
 .main_page__navbar {
-  @include useFlexbox(none, space-between);
+  @include useFlexbox(none, space-around, center);
   width: 100%;
   padding-inline: 0.3rem;
   background-color: #f0f9ff;

@@ -1,7 +1,10 @@
 import { useState } from 'react';
 
+import { useUser } from '../../../lib/hooks';
 import { golfyNumber } from '../../../lib/utils';
 import style from '../../../sass/app.module.scss';
+import FormRowField from '../../forms/form-rowField';
+import UserAvatar from '../user-avatar';
 import PostActionBtns from './post-action-btns';
 import PostTopDetails from './post-top-details';
 import PostBody from './PostBody';
@@ -26,10 +29,23 @@ export default function Post({ post }) {
 }
 
 function PostComments() {
+  const [user] = useUser();
   return (
     <div className={style.post_comments}>
       <div className={style.comment_container}>
-        <div className={style.comment}>Awesome</div>
+        <div className={style.comment}>
+          <div className={style.comment_prompt}>
+            <UserAvatar user={user} size='small' />
+            <FormRowField
+              type='text'
+              name='feed'
+              labelIcon=''
+              rowIcon='fas fa-feather'
+              labelText={`Say something about this post, ${user.firstname}`}
+              model='article'
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
