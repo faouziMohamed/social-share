@@ -14,8 +14,8 @@ export function NavBar({ burgerMenuPros, user }) {
           name='feed'
           labelIcon=''
           rowIcon='fas fa-search'
-          labelText={`Say something about this post, ${user.firstname}`}
-          model='article'
+          labelText={`Search user`}
+          model='search'
           flexible
         />
       </div>

@@ -351,10 +351,18 @@
 }
 
 .search_prompt {
+  transition: all 0.3s ease-in-out;
   display: flex;
   align-items: center;
   position: relative;
-  padding: 0 0.5rem;
+  max-width: 25rem;
+
+  flex: 1 1 100%;
+  margin-inline-end: auto;
+  @media (max-width: 432px) {
+    max-width: 8rem;
+    flex-basis: 20%;
+  }
 }
 
 .modal_container {

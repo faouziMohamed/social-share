@@ -27,6 +27,7 @@ export default function FormRowField({
     initial: style.form_row__model_initial,
     article: style.form_row__model_article,
     edit: style.form_row__model_edit,
+    search: style.form_row__model_search,
   };
   const _cursorType = cursors[cursorType] || '';
   const _modelType = modelType[model] || '';
