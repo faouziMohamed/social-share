@@ -1,0 +1,123 @@
+.profile_head {
+  // background-color: rgb(154, 208, 255);
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-inline: 0.3rem;
+  padding-block-end: 2.5rem;
+}
+
+.profile_cover {
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(20, 6, 31, 0.159);
+    border-radius: 0.5rem;
+  }
+  &:hover {
+    &::after {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.cover_img {
+  width: 100%;
+  height: 16rem;
+  position: relative;
+}
+.cover_picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  background-color: rgb(255, 255, 255);
+}
+
+.user_profile_head {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  pointer-events: none;
+  bottom: -0.1rem;
+}
+
+.user_profile_details {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0rem;
+}
+
+.profile_head_img {
+  position: relative;
+  width: 11rem;
+  height: 11rem;
+  // clip-path: circle(50% at 50% 50%);
+  box-shadow: 0 0 0.08rem 0.07rem rgb(250, 255, 255);
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.user_head_profile_picture {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.profile_foot {
+  background-color: rgb(197, 255, 219);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-block-start: 0.5rem;
+  margin-block-start: 0.5rem;
+}
+
+.profile_tabs {
+  display: flex;
+  padding-inline: 1rem;
+}
+
+.profile_tablink {
+  font-family: 'Titillium Web', Roboto, 'Open Sans', Merriweather, Ubuntu,
+    sans-serif;
+  color: rgb(4, 4, 85);
+  font-weight: 900;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 0.3rem 0.7rem;
+  min-width: 5rem;
+  display: flex;
+  justify-content: center;
+  border-block-start: 3px solid transparent;
+  border-inline: 1px solid transparent;
+}
+
+.active_tab {
+  background-color: rgb(255, 252, 248);
+  background-color: #f0f9ff;
+  border-block-end: 1px solid rgba(242, 242, 242, 0.398);
+  border-block-start-color: rgb(0, 91, 211);
+  border-inline-color: rgb(235, 235, 237);
+  border-radius: 0.2rem 0.2rem 0;
+}

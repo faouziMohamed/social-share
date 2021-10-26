@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
 import style from '../../sass/app.module.scss';
+import BurgerMenu from '../burgers/burger-menu';
 import FormRowField from '../forms/form-rowField';
-import BurgerMenu from './BurgerMenu';
 
 export function NavBar({ burgerMenuPros, user }) {
   return (

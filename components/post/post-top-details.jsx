@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
-import style from '../../../sass/app.module.scss';
-import UserAvatar from '../user-avatar';
+import style from '../../sass/app.module.scss';
+import UserAvatar from '../users/user-avatar';
 
 export default function PostTopDetails({ metadata }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,7 +60,7 @@ function PostMenu({ onClick }) {
 export function AuthorDetails({ user, children }) {
   return (
     <div className={style.post_details}>
-      <Link href={`/profil/${user.username}`}>
+      <Link href={`/profile/${user.username}`}>
         <a className={style.post_owner_name}>
           {`${user.firstname} ${user.lastname}`}
         </a>

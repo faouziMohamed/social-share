@@ -6,7 +6,18 @@ import AuthForm from '../components/forms/auth-form';
 import HeadMeta from '../components/head';
 import FuturaSpinner from '../components/spinners/futura';
 import formData from '../data/auth-form.json';
+import { useUser } from '../lib/hooks';
 import style from '../sass/auth-style.module.scss';
+
+function useAuthVerification() {
+  const [user, { loading }] = useUser();
+  if (loading) return <FuturaSpinner />;
+  if (user) {
+    Router.push('/home');
+    return <FuturaSpinner />;
+  }
+  return false;
+}
 
 export default function Login() {
   const imgsLen = 6;
@@ -27,6 +38,8 @@ export default function Login() {
   useEffect(() => Router.prefetch('/home'), []);
 
   const bgImg = `url(/images/illustrations/sc-${imgIndex}.svg)`;
+
+  if (useAuthVerification()) return false;
   return (
     <>
       <HeadMeta pageData={data.metadata} />

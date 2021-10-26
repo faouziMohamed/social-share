@@ -47,6 +47,8 @@ $leftPane_bg: lighten(v.$primary_color, 70%) !default;
     background-color: darken($color, 11%);
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
     padding: 0.5rem 0.3rem;
     @include useSquareSize(100%);
   }

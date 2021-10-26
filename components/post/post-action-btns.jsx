@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
-import { useUser } from '../../../lib/hooks';
-import style from '../../../sass/app.module.scss';
+import { useUser } from '../../lib/hooks';
+import style from '../../sass/app.module.scss';
 
 export default function PostActionBtns({ statsSetter, metadata, reactions }) {
   const [user] = useUser();

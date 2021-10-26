@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-import { useUser } from '../../../lib/hooks';
-import { golfyNumber } from '../../../lib/utils';
-import style from '../../../sass/app.module.scss';
-import FormRowField from '../../forms/form-rowField';
-import UserAvatar from '../user-avatar';
+import { useUser } from '../../lib/hooks';
+import { golfyNumber } from '../../lib/utils';
+import style from '../../sass/app.module.scss';
+import FormRowField from '../forms/form-rowField';
+import UserAvatar from '../users/user-avatar';
 import PostActionBtns from './post-action-btns';
+import PostBody from './post-body';
 import PostTopDetails from './post-top-details';
-import PostBody from './PostBody';
 
 export default function Post({ post }) {
   const { stats: s, body: postBody, metadata, reactions } = post;

@@ -1,6 +1,6 @@
-import style from '../../../sass/app.module.scss';
-import FormRowField from '../../forms/form-rowField';
-import UserAvatar from '../user-avatar';
+import style from '../../sass/app.module.scss';
+import FormRowField from '../forms/form-rowField';
+import UserAvatar from '../users/user-avatar';
 
 export default function NewPostPrompt({ user, setShowNewPostModal }) {
   const handleClick = () => setShowNewPostModal(true);

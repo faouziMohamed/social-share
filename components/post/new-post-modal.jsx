@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import { useRef, useState } from 'react';
 
-import PostError from '../../../lib/errors/post-error';
-import { useCurrentUserPosts } from '../../../lib/hooks';
-import style from '../../../sass/app.module.scss';
-import FormButton from '../../forms/form-button';
-import FormRowField from '../../forms/form-rowField';
-import UserAvatar from '../user-avatar';
+import PostError from '../../lib/errors/post-error';
+import { useCurrentUserPosts } from '../../lib/hooks';
+import style from '../../sass/app.module.scss';
+import FormButton from '../forms/form-button';
+import FormRowField from '../forms/form-rowField';
+import UserAvatar from '../users/user-avatar';
 import { AuthorDetails } from './post-top-details';
 
 export default function NewPostModal({

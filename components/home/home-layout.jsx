@@ -4,11 +4,11 @@ import { useUser } from '../../lib/hooks';
 import style from '../../sass/app.module.scss';
 import HeadMeta from '../head';
 import FuturaSpinner from '../spinners/futura';
-import LeftPane from './LeftPane';
-import { NavBar } from './NavBar';
-import RightPane from './RightPane';
+import LeftPane from './home-left-pane';
+import { NavBar } from './home-navbar';
+import RightPane from './home-right-pane';
 
-export default function AppLayout({ children, modalOppened }) {
+export default function HomeLayout({ children, modalOppened }) {
   const [user, { loading }] = useUser();
   const [showLeftPane, setShowLeftPane] = useState(false);
   if (loading) return <FuturaSpinner />;

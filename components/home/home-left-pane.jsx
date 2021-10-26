@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Router from 'next/router';
 import { useEffect, useRef } from 'react';
 
 import tabsData from '../../data/left-pane.json';
 import { useUser } from '../../lib/hooks';
 import style from '../../sass/app.module.scss';
 import FuturaSpinner from '../spinners/futura';
+import UserAvatar from '../users/user-avatar';
 
 export default function LeftPane({ currentTab = 'Home', showLeftPane }) {
   const [user, { loading, mutate }] = useUser();
@@ -22,7 +22,7 @@ export default function LeftPane({ currentTab = 'Home', showLeftPane }) {
             <Link href='/home'>
               <a className={`${style.user_profil} ${style.left_pane__link}`}>
                 <Image
-                  src='/images/users/u-0.svg'
+                  src='/favicon.ico'
                   alt={`${user.username} profil Picture`}
                   layout='fill'
                   className={style.user_profil__img}
@@ -32,9 +32,12 @@ export default function LeftPane({ currentTab = 'Home', showLeftPane }) {
           </div>
         </header>
         <div className={style.name_container}>
-          <Link href='/app/profil'>
+          <Link href='/app/profile'>
             <a className={`${style.user_profil_link} ${style.left_pane__link}`}>
-              {`${user?.firstname} ${user?.lastname}`}
+              <UserAvatar user={user} />
+              <span className={style.user_profil_name}>
+                {`${user?.firstname} ${user?.lastname}`}
+              </span>
             </a>
           </Link>
         </div>
@@ -127,5 +130,5 @@ function LogoutButton({ mutate }) {
 async function disconnectUser(mutate) {
   await fetch('/api/logout');
   mutate({ user: null });
-  Router.push('/');
+  window.location = '/';
 }

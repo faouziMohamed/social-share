@@ -1,4 +1,4 @@
-import style from '../../../sass/app.module.scss';
+import style from '../../sass/app.module.scss';
 
 export default function PostBody({ body }) {
   return (
