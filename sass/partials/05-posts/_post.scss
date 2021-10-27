@@ -36,41 +36,6 @@
   flex: 1;
 }
 
-.post_owner_avatar_link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  clip-path: circle(50% at 50% 50%);
-  position: relative;
-  width: 2.6rem;
-  height: 2.6rem;
-  flex-shrink: 0.2;
-}
-
-.avatarSmall {
-  width: 2rem;
-  height: 2rem;
-}
-.post_details {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-self: flex-start;
-  align-items: flex-start;
-  padding: 0.3rem 0.2rem 0 0.2rem;
-  line-height: 0.9rem;
-}
-
-.post_owner_name {
-  font-size: 0.95rem;
-  font-family: Merriweather, 'Open Sans', 'Titillium Web', Ubuntu, Roboto,
-    sans-serif;
-  font-weight: 700;
-  color: rgb(71, 71, 71);
-  text-decoration: none;
-}
-
 .post_date {
   font-size: 0.7rem;
   font-weight: 600;

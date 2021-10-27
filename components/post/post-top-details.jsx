@@ -1,8 +1,8 @@
-import Link from 'next/link';
 import { useState } from 'react';
 
 import style from '../../sass/app.module.scss';
-import UserAvatar from '../users/user-avatar';
+import UserAvatar from '../user/user-avatar';
+import UserBadge from '../user/user-badge';
 
 export default function PostTopDetails({ metadata }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,11 +11,11 @@ export default function PostTopDetails({ metadata }) {
     <div className={style.post_top_details}>
       <div className={style.post_data}>
         <AuthorAvatar metadata={metadata} />
-        <AuthorDetails user={metadata}>
+        <UserBadge user={metadata}>
           <small className={style.post_date}>
             <time>{metadata.date}</time>
           </small>
-        </AuthorDetails>
+        </UserBadge>
       </div>
 
       <div className={style.post_options}>
@@ -53,19 +53,6 @@ function PostMenu({ onClick }) {
         <i className='fas fa-bookmark' />
         <span className={style.option_item_text}> Bookmark</span>
       </button>
-    </div>
-  );
-}
-
-export function AuthorDetails({ user, children }) {
-  return (
-    <div className={style.post_details}>
-      <Link href={`/profile/${user.username}`}>
-        <a className={style.post_owner_name}>
-          {`${user.firstname} ${user.lastname}`}
-        </a>
-      </Link>
-      {children}
     </div>
   );
 }

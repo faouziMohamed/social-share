@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 import { useUser } from '../../lib/hooks';
-import { golfyNumber } from '../../lib/utils';
+import { golfyNumber } from '../../lib/utils/lib.utils';
 import style from '../../sass/app.module.scss';
 import FormRowField from '../forms/form-rowField';
-import UserAvatar from '../users/user-avatar';
+import UserAvatar from '../user/user-avatar';
 import PostActionBtns from './post-action-btns';
 import PostBody from './post-body';
 import PostTopDetails from './post-top-details';

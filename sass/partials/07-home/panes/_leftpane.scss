@@ -39,22 +39,22 @@ $leftPane_bg: lighten(v.$primary_color, 70%) !default;
   @include useFlexbox(none);
   width: 100%;
   padding-inline: 0.5rem;
-
-  @at-root .user_profil_link {
-    $color: lighten(v.$primary_color, 75%);
-    border-radius: 0.5rem;
-    color: #112;
-    background-color: darken($color, 11%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 0.3rem;
-    @include useSquareSize(100%);
-  }
 }
 
-.user_profil {
+.user_profile {
+  $color: lighten(v.$primary_color, 75%);
+  border-radius: 0.5rem;
+  color: #112;
+  background-color: darken($color, 11%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.3rem;
+  @include useSquareSize(100%);
+}
+
+.app_home_link {
   display: block;
   position: relative;
   @include useSquareSize(5rem);
@@ -138,7 +138,6 @@ $leftPane_bg: lighten(v.$primary_color, 70%) !default;
 
     .left_pane__nav__link {
       font-size: 1.6rem;
-      // padding: 0.5rem;
       padding-inline: 0rem;
       transition: all 0.2s ease-in-out;
       justify-content: center;
@@ -148,4 +147,10 @@ $leftPane_bg: lighten(v.$primary_color, 70%) !default;
       }
     }
   }
+}
+
+.lighter {
+  color: rgb(38, 67, 75);
+  font-weight: 600;
+  font-family: 'Titillium Web', Ubuntu, Roboto, sans-serif;
 }

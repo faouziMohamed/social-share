@@ -4,7 +4,10 @@ import {
   findPostByUrl,
 } from '../../lib/db/queries/post.queries';
 import PostError from '../../lib/errors/post-error';
-import { removeExtraSpaces, removeTrailingSlash } from '../../lib/utils';
+import {
+  removeExtraSpaces,
+  removeTrailingSlash,
+} from '../../lib/utils/lib.utils';
 
 export function readRequestBodyPOST(req) {
   const { author, ...post } = req.body;

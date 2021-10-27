@@ -4,9 +4,11 @@ import { useEffect, useRef } from 'react';
 
 import tabsData from '../../data/left-pane.json';
 import { useUser } from '../../lib/hooks';
+import { disconnectUser } from '../../lib/utils/lib.utils';
 import style from '../../sass/app.module.scss';
 import FuturaSpinner from '../spinners/futura';
-import UserAvatar from '../users/user-avatar';
+import UserAvatar from '../user/user-avatar';
+import UserBadge from '../user/user-badge';
 
 export default function LeftPane({ currentTab = 'Home', showLeftPane }) {
   const [user, { loading, mutate }] = useUser();
@@ -20,12 +22,12 @@ export default function LeftPane({ currentTab = 'Home', showLeftPane }) {
         <header className={style.left_pane__header}>
           <div className={style.logo_container}>
             <Link href='/home'>
-              <a className={`${style.user_profil} ${style.left_pane__link}`}>
+              <a className={`${style.app_home_link} ${style.left_pane__link}`}>
                 <Image
                   src='/favicon.ico'
                   alt={`${user.username} profil Picture`}
                   layout='fill'
-                  className={style.user_profil__img}
+                  className={style.app_home_link__img}
                 />
               </a>
             </Link>
@@ -33,11 +35,11 @@ export default function LeftPane({ currentTab = 'Home', showLeftPane }) {
         </header>
         <div className={style.name_container}>
           <Link href='/app/profile'>
-            <a className={`${style.user_profil_link} ${style.left_pane__link}`}>
-              <UserAvatar user={user} />
-              <span className={style.user_profil_name}>
-                {`${user?.firstname} ${user?.lastname}`}
-              </span>
+            <a className={`${style.user_profile} ${style.left_pane__link}`}>
+              <UserAvatar user={user} removeLink />
+              <UserBadge user={user} removeLink darkerFont>
+                <small className={style.lighter}>{`@${user?.username}`}</small>
+              </UserBadge>
             </a>
           </Link>
         </div>
@@ -125,10 +127,4 @@ function LogoutButton({ mutate }) {
       </button>
     </li>
   );
-}
-
-async function disconnectUser(mutate) {
-  await fetch('/api/logout');
-  mutate({ user: null });
-  window.location = '/';
 }

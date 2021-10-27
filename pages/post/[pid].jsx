@@ -2,8 +2,8 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import Router from 'next/router';
 
-import AppLayout from '../../components/app/AppLayout';
-import Post from '../../components/app/post/post';
+import HomeLayout from '../../components/home/home-layout';
+import Post from '../../components/post/post-layout';
 import FuturaSpinner from '../../components/spinners/futura';
 import { useFetch, useUser } from '../../lib/hooks';
 
@@ -18,9 +18,9 @@ export default function App() {
   user.avatar = '/images/users/u-0.svg';
   dayjs.extend(relativeTime);
   return (
-    <AppLayout user={user}>
+    <HomeLayout user={user}>
       <Feeds />
-    </AppLayout>
+    </HomeLayout>
   );
 }
 
