@@ -1,0 +1,62 @@
+@use '../00-globals/variables' as v;
+@use '../00-globals/global-mixin' as *;
+.row_item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  border-bottom: 1px solid #e6e6e6;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.row_link_item {
+  $color: lighten(v.$primary_color, 75%);
+  border-radius: 0.5rem;
+  color: #112;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.3rem;
+  text-decoration: none;
+  @include useSquareSize(100%);
+  list-style-type: none;
+
+  &:hover {
+    background-color: rgb(240, 240, 240);
+  }
+}
+
+.row_textContent_parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.3rem 0.2rem 0 0.2rem;
+  line-height: 0.9rem;
+}
+
+.row_textContent {
+  font-size: 0.95rem;
+  font-family: Merriweather, 'Open Sans', 'Titillium Web', Ubuntu, Roboto,
+    sans-serif;
+  font-weight: 700;
+  color: rgb(71, 71, 71);
+  text-decoration: none;
+}
+
+.row_detailsText {
+  font-size: 0.87rem;
+  font-family: 'Titillium Web', Ubuntu, Roboto, sans-serif;
+  font-weight: 400;
+  color: rgb(75, 85, 87);
+}
+.darkerFont {
+  color: rgb(38, 39, 39);
+}
+
+.lighter {
+  color: rgb(38, 67, 75);
+  font-weight: 600;
+  font-family: 'Titillium Web', Ubuntu, Roboto, sans-serif;
+}

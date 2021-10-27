@@ -4,10 +4,9 @@ import { useRef, useState } from 'react';
 import PostError from '../../lib/errors/post-error';
 import { useCurrentUserPosts } from '../../lib/hooks';
 import style from '../../sass/app.module.scss';
+import UserBadge from '../context-menu/row-item';
 import FormButton from '../forms/form-button';
 import FormRowField from '../forms/form-rowField';
-import UserAvatar from '../users/user-avatar';
-import { AuthorDetails } from './post-top-details';
 
 export default function NewPostModal({
   user,
@@ -43,10 +42,7 @@ export default function NewPostModal({
           <div className={style.modal_body}>
             <div className={style.modal_user_details}>
               <div className={style.post_data}>
-                <UserAvatar user={user} />
-                <AuthorDetails user={user}>
-                  <small className={style.post_date}>New post</small>
-                </AuthorDetails>
+                <UserBadge detailsText='New post' user />
               </div>
             </div>
 

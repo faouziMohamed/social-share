@@ -1,10 +1,6 @@
 @use '../00-globals/variables' as v;
 @use '../00-globals/global-mixin' as *;
 
-%padding-0_5rem {
-  padding: 0.5rem;
-}
-
 .main_page__navbar {
   @include useFlexbox(none, space-around, center);
   width: 100%;
@@ -23,7 +19,7 @@
   &__btn {
     @include useSquareSize(2.2rem);
     @include useFlexbox($jt: center, $al: center);
-    @extend %padding-0_5rem;
+    padding: 0.5rem;
     position: relative;
     color: #292929e3;
     border-radius: 50%;
@@ -35,13 +31,18 @@
     transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
     &:hover {
-      background-color: rgba(33, 170, 180, 0.151);
+      background-color: rgba(33, 170, 180, 0.234);
+      box-shadow: 0px 0px 0.1rem 0.01rem rgba(33, 170, 180, 0.234);
     }
   }
 }
-.profil_btn {
-  @include useSquareSize(3.2rem);
+
+.profile_btn {
+  width: 3.4rem;
+  height: 3.4rem;
   position: relative;
   padding: 0;
   background-color: rgba(v.$primary_color, 0.1);
+  border: 2px solid rgba(1, 155, 202, 0.083);
+  box-shadow: 0 0 0.5rem inset rgba(1, 202, 75, 0.165);
 }

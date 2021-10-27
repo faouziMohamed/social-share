@@ -5,11 +5,6 @@
     "icon": "fad fa-house"
   },
   {
-    "name": "Profile",
-    "path": "/profile",
-    "icon": "fad fa-user"
-  },
-  {
     "name": "Message",
     "path": "/message",
     "icon": "fad fa-envelope"
@@ -25,8 +20,8 @@
     "icon": "fad fa-bell"
   },
   {
-    "name": "Settings",
-    "path": "/settings",
+    "name": "Preferences",
+    "path": "/preferences",
     "icon": "fad fa-cog"
   }
 ]
