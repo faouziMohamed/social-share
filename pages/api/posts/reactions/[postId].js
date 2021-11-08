@@ -6,7 +6,7 @@ import {
   // findPostById,
 } from '../../../../lib/db/queries/post.queries';
 import PostError from '../../../../lib/errors/post-error';
-import auth from '../../../../middleware/authentication';
+import auth from '../../../../middleware';
 
 const handler = nextConnect().use(auth);
 

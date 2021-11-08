@@ -3,7 +3,7 @@ import nextConnect from 'next-connect';
 import { findPostsByUserId } from '../../../../lib/db/queries/post.queries';
 import { existsUserById } from '../../../../lib/db/queries/user.queries';
 import PostError from '../../../../lib/errors/post-error';
-import auth from '../../../../middleware/authentication';
+import auth from '../../../../middleware';
 import { handleErrors } from '../[param]';
 
 const handler = nextConnect().use(auth);

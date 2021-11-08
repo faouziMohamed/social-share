@@ -1,6 +1,6 @@
 import nextConnect from 'next-connect';
 
-import auth from '../../middleware/authentication';
+import auth from '../../middleware';
 
 const logoutHandler = nextConnect();
 

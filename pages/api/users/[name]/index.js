@@ -6,32 +6,32 @@ import {
   existsUserByUsername,
   findUserByIdOpt,
   findUserByUsernameOpt,
-} from '../../../lib/db/queries/user.queries';
-import AppError from '../../../lib/errors/sc-error-base';
-import UserError from '../../../lib/errors/user-error';
-import auth from '../../../middleware/authentication';
+} from '../../../../lib/db/queries/user.queries';
+import AppError from '../../../../lib/errors/sc-error-base';
+import UserError from '../../../../lib/errors/user-error';
+import auth from '../../../../middleware';
 
 const handler = nextConnect();
 
 handler.use(auth).get(async (req, res) => {
   try {
-    const { username } = req.query;
+    const { name } = req.query;
     let user;
-    if (isValidObjectId(username)) {
-      const uid = username;
-      if (!(await existsUserById(username))) {
+    if (isValidObjectId(name)) {
+      const uid = name;
+      if (!(await existsUserById(name))) {
         const message = 'Please provide a valid user id or use a username';
         const hint = `The value likely user user id '${uid}' is invalid`;
         throw new UserError({ message, hint, code: 400 });
       }
       user = await findUserByIdOpt(uid);
     } else {
-      if (!(await existsUserByUsername(username))) {
-        const message = 'Please provide a valid username or use a user Id';
-        const hint = `The username you passed '${username}' does not belong to anyone`;
+      if (!(await existsUserByUsername(name))) {
+        const message = 'Please provide a valid name or use a user Id';
+        const hint = `The name you passed '${name}' does not belong to anyone`;
         throw new UserError({ message, hint, code: 400 });
       }
-      user = await findUserByUsernameOpt(username);
+      user = await findUserByUsernameOpt(name);
     }
     const { _id: id, ...userData } = user;
     return res.json({ user: { id, ...userData } });

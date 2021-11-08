@@ -1,6 +1,6 @@
 import nc from 'next-connect';
 
-import auth from '../../middleware/authentication';
+import auth from '../../middleware';
 import passport from '../../middleware/passeport';
 
 const loginHandler = nc();
