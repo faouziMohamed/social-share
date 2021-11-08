@@ -94,7 +94,8 @@ $leftPane_bg: lighten(v.$primary_color, 70%) !default;
   font-size: 1.1rem;
   position: relative;
   background-color: transparent;
-  font-family: v.$secondary_font;
+  color: rgb(44, 41, 41);
+  font-family: 'Titillium Web', 'Open Sans';
 
   &:hover {
     background-color: darken($links_bg, 5%);

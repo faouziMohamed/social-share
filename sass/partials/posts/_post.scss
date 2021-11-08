@@ -121,11 +121,12 @@
     content: '';
     display: block;
     width: 1rem;
-    border: 0.5rem solid black;
+    border: 0.5rem solid rgb(7, 7, 7);
     border-color: transparent transparent rgb(158, 158, 158) transparent;
     position: absolute;
     right: 0.3rem;
     top: -1.04rem;
+    pointer-events: none;
   }
 }
 

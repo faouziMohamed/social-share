@@ -1,5 +1,5 @@
-@use '../../00-globals/global-mixin' as *;
-@use '../../00-globals/variables' as v;
+@use '../../partials/00-globals/variables' as v;
+@use '../../partials/00-globals/global-mixin' as *;
 
 %useSameFlexbox {
   @include useFlexbox();

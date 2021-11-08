@@ -1,5 +1,5 @@
-@use '../../00-globals/variables' as v;
-@use '../../00-globals/global-mixin' as *;
+@use '../../partials/00-globals/variables' as v;
+@use '../../partials/00-globals/global-mixin' as *;
 
 $burger-primary-color: #001044;
 @mixin use-TranslateY-rotate($sign: '') {

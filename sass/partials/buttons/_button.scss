@@ -1,4 +1,3 @@
-@use './variables' as fv;
 @use '../00-globals/variables' as gv;
 .form_row__btn:not(.no_blinking):not(:disabled) {
   animation: bg-change 1s ease infinite;
@@ -63,11 +62,11 @@
   }
 }
 
-.btn_submit {
+.btn_primary {
+  cursor: pointer;
   border: 2px solid gv.$primary_color_dark;
   background-color: gv.$primary_color;
   box-shadow: 0 0 0.15rem 0.01rem rgba(gv.$primary_color_dark, 90%);
-
   &:hover,
   &:focus {
     background-color: gv.$primary_color_darken;
@@ -78,6 +77,23 @@
     border-color: gv.$primary_color_darkest;
     box-shadow: 0 0 0.5rem 0.06rem inset gv.$primary_color_dark;
   }
+}
+.btn_primary:is(.btn_fill) {
+  background-color: gv.$primary_color_dark;
+  &:hover,
+  &:focus {
+    background-color: darken(gv.$primary_color_dark, 5%);
+    box-shadow: 0 0 0.2rem 0.02rem gv.$primary_color_dark;
+  }
+
+  &:active {
+    border-color: gv.$primary_color_darkest;
+    box-shadow: 0 0 0.5rem 0.06rem inset gv.$primary_color_dark;
+  }
+}
+
+.btn_submit {
+  @extend .btn_primary;
 }
 
 .btn_wide {
