@@ -32,7 +32,6 @@ export default function App() {
     Router.push('/login');
     return <FuturaSpinner />;
   }
-  user.avatar = '/images/users/u-0.svg';
   dayjs.extend(relativeTime);
 
   const layoutProps = { modalOppened: showNewPostModal };
