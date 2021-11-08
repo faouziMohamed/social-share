@@ -1,4 +1,7 @@
 # Social Share
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9ae6816b746f485eabf9d0fd6f99f2a9)](https://app.codacy.com/gh/faouziMohamed/social-share?utm_source=github.com&utm_medium=referral&utm_content=faouziMohamed/social-share&utm_campaign=Badge_Grade_Settings)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started - Run project localy 
