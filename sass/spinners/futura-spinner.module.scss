@@ -1,5 +1,5 @@
-@use './partials/00-globals/variables' as v;
-@use './partials/00-globals/global-mixin' as *;
+@use '../partials/00-globals/global-mixin' as *;
+@use '../partials/00-globals/variables' as v;
 
 @keyframes spinner {
   100% {
@@ -48,7 +48,9 @@
 }
 
 .spinner_semi_transparent {
-  background-color: #04374644;
+  background-color: #cacaca3b;
+  border-radius: 0.3rem;
+  filter: blur(0);
 }
 
 .spinner_transparent {
@@ -80,4 +82,8 @@
       var(--middle-spinner-color2);
     @include useSquareSize(140%);
   }
+}
+
+.hidden {
+  display: none;
 }

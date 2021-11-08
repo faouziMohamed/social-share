@@ -12,10 +12,7 @@ export default function HomeLayout({ children, modalOppened }) {
   const [user, { loading }] = useUser();
   const [showLeftPane, setShowLeftPane] = useState(false);
   if (loading) return <FuturaSpinner />;
-  const sidenavPros = {
-    showLeftPane,
-    setShowLeftPane,
-  };
+  const sidenavPros = { showLeftPane, setShowLeftPane };
   const burgerMenuPros = { setShowLeftPane };
   const pageData = {
     title: 'Home | Social share',

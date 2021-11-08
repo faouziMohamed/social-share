@@ -7,7 +7,6 @@ import { useUser } from '../../lib/hooks';
 import style from '../../sass/app.module.scss';
 import HeadMeta from '../head';
 import FuturaSpinner from '../spinners/futura';
-// import ProfileFoot from './profile-foot';
 import { ProfileHead } from './profile-head';
 import { ProfileNavBar } from './profile-navbar';
 
@@ -25,7 +24,6 @@ export default function HomeLayout({ children, modalOppened }) {
     router.replace('/404', `/profile/${username}`);
     return <FuturaSpinner />;
   }
-  user.avatar = '/images/users/u-0.svg';
   dayjs.extend(relativeTime);
 
   const pageData = {
@@ -49,12 +47,12 @@ export default function HomeLayout({ children, modalOppened }) {
             >
               <Head>
                 <title>
-                  {user.firstname} {user.lastname} |{' '}
+                  {user.firstname} {user.lastname}
+                  {' | '}
                   {process.env.NEXT_PUBLIC_APPNAME}
                 </title>
               </Head>
               <ProfileHead />
-              {/* <ProfileFoot /> */}
               {children}
             </main>
           </div>

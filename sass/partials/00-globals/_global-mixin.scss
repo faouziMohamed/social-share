@@ -17,6 +17,10 @@
   }
 }
 
+@mixin flexbox($dir: row, $jt: center, $al: center, $inline: none) {
+  @include useFlexbox($dir, $jt, $al, $inline);
+}
+
 @mixin usePosition(
   $position: relative,
   $top: none,
@@ -42,6 +46,11 @@
 }
 
 @mixin useSquareSize($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin size($size) {
   width: $size;
   height: $size;
 }

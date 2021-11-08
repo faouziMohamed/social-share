@@ -1,0 +1,82 @@
+@use '../partials/00-globals/global-mixin' as *;
+.dots_loader {
+  position: relative;
+  @include flexbox;
+
+  &.alone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.dot {
+  animation-name: dot;
+  animation-duration: 1500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-color: black;
+  border-radius: 50%;
+  @include size(1rem);
+  background-color: rgb(0, 208, 255);
+  display: flex;
+  flex-direction: row;
+
+  &:nth-child(1) {
+    animation-delay: -600ms;
+  }
+
+  &:nth-child(2) {
+    animation-delay: -300ms;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0ms;
+  }
+
+  &:nth-child(4) {
+    animation-delay: 300ms;
+  }
+
+  &:nth-child(5) {
+    animation-delay: 600ms;
+  }
+
+  &:nth-child(6) {
+    animation-delay: 900ms;
+  }
+
+  &:nth-child(7) {
+    animation-delay: 1200ms;
+  }
+
+  &:nth-child(8) {
+    animation-delay: 1500ms;
+  }
+
+  &:nth-child(9) {
+    animation-delay: 1800ms;
+  }
+
+  @keyframes dot {
+    0% {
+      opacity: 0.5;
+    }
+
+    60% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+}

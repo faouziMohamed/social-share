@@ -42,8 +42,8 @@ function AppLogo({ user }) {
     <Link href='/home'>
       <a className={`${css.app_home_link}`}>
         <Image
-          src='/sc-icons/logo/sc-light.png'
-          alt={`${user.username} profil Picture`}
+          src='/sc-icons/logo/sc-default.png'
+          alt={`${user.username} profile picture`}
           layout='fill'
         />
       </a>

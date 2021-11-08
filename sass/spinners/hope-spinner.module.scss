@@ -1,23 +1,25 @@
-@use '../../partials/00-globals/variables' as v;
-@use '../../partials/00-globals/global-mixin' as *;
+@use '../partials/00-globals/global-mixin' as *;
 
-.preloader {
+.hope_loader {
   position: absolute;
-  @include useFlexbox(none);
-  @include usePosition(absolute, 0, 0);
-  @include useSquareSize(100%);
-  background-color: rgb(255, 255, 255);
-  z-index: v.$zindex_level_one;
-}
-
-.loading {
-  display: flex;
-  align-items: flex-end;
+  top: 0;
+  left: 0;
+  @include size(100%);
+  @include flexbox;
   gap: 0.3125rem;
   font-size: 1rem;
   padding-block: 1rem;
   font-weight: 600;
+  &.row_children {
+    flex-direction: row;
+    background-color: rgb(220, 220, 87);
+  }
+  &.column_children {
+    flex-direction: column;
+    // background-color: rgb(220, 87, 220);
+  }
 }
+
 .loading__spinner {
   display: inline-block;
   animation-name: rotation;
@@ -28,11 +30,21 @@
   border-radius: 20px;
   border-style: double;
   border-width: 3px;
-  @include useSquareSize(1.5rem);
+  @include size(2rem);
+}
+
+.loading_text {
+  @include flexbox(column);
+  align-items: flex-start;
+  gap: 0.3rem;
 }
 
 @keyframes rotation {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.hidden {
+  display: none;
 }

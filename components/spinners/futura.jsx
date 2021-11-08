@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-import style from '../../sass/futuraSpinner.module.scss';
+import style from '../../sass/spinners/futura-spinner.module.scss';
 
 export default function FuturaSpinner({ semiTransparent, transparent }) {
   let className = `${style.spinner_preloader}`;

@@ -1,0 +1,62 @@
+@use '../partials/00-globals/global-mixin' as *;
+@use '../partials/00-globals/variables' as v;
+
+.has_loader,
+.bubble_container {
+  @include useFlexbox(column);
+  @include usePosition(absolute, 0, 0);
+  @include useSquareSize(100%);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: v.$zindex_base_level + 1;
+  background-color: inherit;
+}
+
+.bubble_container {
+  flex-direction: row;
+  list-style: none;
+  background-color: #f8f8f8;
+}
+
+.bubble_item {
+  $shadow_size: 1rem;
+  $bubble_size: 0.2rem;
+  position: relative;
+  @include useSquareSize(2.1rem);
+  background-color: #fff;
+  border-radius: 50%;
+  animation: grow 1.2s ease-in-out infinite;
+
+  &:nth-child(1) {
+    animation-delay: -1.2s;
+    background: #c00303;
+    box-shadow: 0 0 $shadow_size $bubble_size #c00303;
+  }
+  &:nth-child(2) {
+    animation-delay: -1s;
+    background: #76ff03;
+    box-shadow: 0 0 $shadow_size $bubble_size #76ff03;
+  }
+  &:nth-child(3) {
+    animation-delay: -0.8s;
+    background: #f06292;
+    box-shadow: 0 0 $shadow_size $bubble_size #f06292;
+  }
+  &:nth-child(4) {
+    animation-delay: -0.6s;
+    background: #4fc3f7;
+    box-shadow: 0 0 $shadow_size $bubble_size #4fc3f7;
+  }
+
+  @keyframes grow {
+    0%,
+    40%,
+    100% {
+      transform: scale(0.4);
+    }
+    20% {
+      transform: scale(1);
+    }
+  }
+}

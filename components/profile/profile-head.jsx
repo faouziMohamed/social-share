@@ -4,12 +4,14 @@ import { useRouter } from 'next/router';
 
 import { useUser } from '../../lib/hooks';
 import style from '../../sass/profile.module.scss';
+import DotsLoader from '../spinners/dot';
+import HopeSpinner from '../spinners/hope';
 
 export function ProfileHead() {
   const router = useRouter();
   const { username } = router.query;
   const [user] = useUser(username);
-
+  if (!user) return <HopeSpinner direction='column' showDots />;
   return (
     <div className={style.head_wrapper}>
       <div className={style.profile_head}>
@@ -25,7 +27,7 @@ export function ProfileHead() {
               />
             </div>
           </div>
-          <FrontInfo user={user} />
+          <FrontInfo />
         </div>
       </div>
     </div>
@@ -52,13 +54,15 @@ function FrontInfo() {
   const { username } = router.query;
   const [user] = useUser(username);
   const [curUser] = useUser();
+  if (!user) return <DotsLoader alone />;
+
   if (!curUser.following) curUser.following = [];
   return (
     <div className={style.front_info}>
       <div className={style.head_data}>
         <div className={style.profile_user_name}>
           <span>
-            {user.firstname} {user.lastname} Random kaka
+            {user.firstname} {user.lastname}
           </span>
         </div>
 
