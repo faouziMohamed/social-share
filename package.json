@@ -43,7 +43,7 @@
     "prettier": "^2.4.1"
   },
   "lint-staged": {
-    "*.js,jsx,json": "next lint --fix",
-    "*.{js,jsx,json,scss}": "prettier --write "
+    "**/*.{js,jsx}": "eslint --fix",
+    "**/*.{js,jsx,json,scss}": "prettier --write "
   }
 }
