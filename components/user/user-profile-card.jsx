@@ -8,7 +8,7 @@ export default function UserProfileCard() {
   return (
     <div className={style.user_menu} aria-label='menu'>
       <div className={style.user_menu_row_item}>
-        <MenuRowItem link='/app/profile' detailsText='See your profile' user />
+        <MenuRowItem link='/profile' detailsText='See your profile' user />
       </div>
       <nav>
         <ul>

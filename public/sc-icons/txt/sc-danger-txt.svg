@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="sc-danger-txt.svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient2852"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#7d7d7d;stop-opacity:1;"
+         offset="0"
+         id="stop2850" />
+    </linearGradient>
+    <marker
+       inkscape:stockid="Arrow1Sstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Sstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path1125"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt"
+         transform="scale(0.2) translate(6,0)" />
+    </marker>
+    <symbol
+       id="peak"
+       viewBox="0 0 509.05307 441.04025">
+      <title
+         id="title2645">peak</title>
+      <path
+         style="stroke-width:0.26458332"
+         inkscape:connector-curvature="0"
+         d="M 0,116.58837 67.312326,0 134.68696,116.6919 Z"
+         id="path2647" />
+    </symbol>
+    <symbol
+       id="mountain_pass"
+       viewBox="0 0 506.12891 506.12891">
+      <title
+         id="title2640">mountain_pass</title>
+      <path
+         style="stroke-width:0.26458332"
+         inkscape:connector-curvature="0"
+         d="M 86.728557,1.0583333e-6 70.855623,0.25631616 71.13106,17.33331 17.151924,71.312445 H -5.2916665e-7 v 15.875 H 23.727751 L 87.112512,23.802682 86.728557,5.2916667e-7 Z M 110.11059,46.800763 46.725829,110.18552 v 23.72776 h 15.875 v -17.15193 l 53.979131,-53.97965 17.077,0.275436 0.25631,-15.872933 z"
+         id="path2642" />
+    </symbol>
+    <symbol
+       id="dot">
+      <title
+         id="title20998">dot</title>
+      <path
+         style="stroke-width:0.26458332"
+         inkscape:connector-curvature="0"
+         d="m 2.1166667,1.5875 c -0.2921,0 -0.5291667,0.2370667 -0.5291667,0.5291667 0,0.2921 0.2370667,0.5291666 0.5291667,0.5291666 0.2921,0 0.5291666,-0.2370666 0.5291666,-0.5291666 0,-0.2921 -0.2370666,-0.5291667 -0.5291666,-0.5291667 z"
+         id="path21000" />
+    </symbol>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="99.778257"
+     inkscape:cy="432.78593"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="744"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     showguides="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid96339" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g1016"
+       transform="translate(0,131.78478)" />
+    <g
+       id="g3093"
+       transform="matrix(2.7593398,0,0,2.7593398,-30.344457,-379.31868)"
+       inkscape:export-filename="/home/faouzi/Projects/Web/nextJs/social-share/social-share/public/sc-icons/txt/sc-danger-txt.png"
+       inkscape:export-xdpi="479.436"
+       inkscape:export-ydpi="479.436">
+      <g
+         id="g96391"
+         transform="matrix(0.55735923,0,0,0.55735923,-50.327493,144.71509)">
+        <use
+           transform="matrix(70.953066,0,0,67.922608,0.5191,-60.216013)"
+           height="100%"
+           width="100%"
+           y="0"
+           x="0"
+           xlink:href="#dot"
+           style="fill:#aa0000;fill-opacity:1;stroke:none"
+           id="use96380" />
+        <use
+           transform="matrix(0.80277971,0,0,0.84607195,137.76721,18.259713)"
+           height="100%"
+           width="100%"
+           y="0"
+           x="0"
+           xlink:href="#mountain_pass"
+           style="fill:#de8787;fill-opacity:1;stroke:none"
+           id="use96382" />
+        <use
+           transform="matrix(0.93197279,0,0,1.0157035,123.86919,-2.562679)"
+           height="100%"
+           width="100%"
+           y="0"
+           x="0"
+           xlink:href="#peak"
+           style="fill:#ffccaa;fill-opacity:1;stroke:#000000;stroke-opacity:1"
+           id="use96384" />
+      </g>
+      <g
+         aria-label="Social
+Share"
+         transform="matrix(0.21581245,0,0,0.21581245,-47.074838,135.40077)"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:1.25;font-family:'StarJedi Special Edition';-inkscape-font-specification:'StarJedi Special Edition';letter-spacing:0px;word-spacing:0px;fill:#ff5b00;fill-opacity:1;stroke:none"
+         id="flowRoot962">
+        <path
+           d="m 464.23145,261.38861 h -10.64063 q -6.02344,-0.1875 -1.78125,3.32812 7.59375,6.65625 7.45313,12.9375 -0.14063,6.28125 -7.45313,7.5 h -29.53125 v -10.07812 h 18.65625 q 6.63281,0.1875 1.6875,-3.70313 -8.15625,-7.5 -6.9375,-13.78125 1.21875,-6.28125 7.6875,-6.28125 h 20.85938 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:'StarJedi Special Edition';-inkscape-font-specification:'StarJedi Special Edition';text-align:center;text-anchor:middle;fill:#ff5b00;fill-opacity:1;stroke:none"
+           id="path849" />
+        <path
+           d="m 499.50488,268.41986 q 0,5.55468 -2.32031,9.46875 -2.32031,3.91406 -6.72656,5.88281 -4.38281,1.96875 -10.47656,1.96875 -6.09375,0 -10.47657,-1.96875 -4.35937,-1.99219 -6.60937,-5.85938 -2.25,-3.89062 -2.25,-9.49218 0,-4.24219 1.28906,-7.45313 1.28906,-3.23437 3.77344,-5.4375 2.48437,-2.20312 6.09375,-3.32812 3.60937,-1.14844 8.17969,-1.14844 6.07031,0 10.47656,2.01562 4.40625,1.99219 6.72656,5.90625 2.32031,3.89063 2.32031,9.44532 z m -26.83593,0.0937 q 0,3.25781 1.45312,5.67187 1.47656,2.41406 5.78906,2.41406 3.32813,0 4.96875,-1.26562 1.66407,-1.26563 2.0625,-2.88281 0.42188,-1.64063 0.5625,-3.9375 -0.14062,-3.25782 -1.57031,-5.67188 -1.42969,-2.4375 -6.02344,-2.4375 -7.24218,0 -7.24218,8.10938 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:'StarJedi Special Edition';-inkscape-font-specification:'StarJedi Special Edition';text-align:center;text-anchor:middle;fill:#ff5b00;fill-opacity:1;stroke:none"
+           id="path851" />
+        <path
+           d="m 523.90332,275.07611 h 10.59375 v 10.07812 h -15 q -5.50781,0 -9.96094,-1.94531 -4.45312,-1.96875 -7.03125,-5.88281 -2.55468,-3.91407 -2.55468,-9.58594 0,-3.98438 1.52343,-7.10156 1.54688,-3.14063 4.26563,-5.20313 2.71875,-2.08594 6.23437,-3.09375 3.53907,-1.03125 7.52344,-1.03125 h 9.28125 5.71875 v 10.07813 h -10.59375 q -3.5625,0 -5.27344,0.21093 -1.71093,0.21094 -3.04687,0.70313 -1.33594,0.49219 -2.36719,1.71094 -1.03125,1.21875 -1.19531,4.3125 0.11719,3 1.19531,4.28906 1.07813,1.28906 2.625,1.71094 1.54688,0.42187 3.1875,0.58593 1.64063,0.16407 4.875,0.16407 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:'StarJedi Special Edition';-inkscape-font-specification:'StarJedi Special Edition';text-align:center;text-anchor:middle;fill:#ff5b00;fill-opacity:1;stroke:none"
+           id="path853" />
+        <path
+           d="m 535.43457,251.31048 h 11.01563 v 33.84375 h -11.01563 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:'StarJedi Special Edition';-inkscape-font-specification:'StarJedi Special Edition';text-align:center;text-anchor:middle;fill:#ff5b00;fill-opacity:1;stroke:none"
+           id="path855" />
+        <path
+           d="m 545.5127,285.15423 11.13281,-33.84375 h 16.80469 l 11.32031,33.84375 h -12.79688 l -2.13281,-6.09375 h -10.05469 l -2.13281,6.09375 z m 19.57031,-26.34375 -4.85156,13.40625 h 9.32812 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:'StarJedi Special Edition';-inkscape-font-specification:'StarJedi Special Edition';text-align:center;text-anchor:middle;fill:#ff5b00;fill-opacity:1;stroke:none"
+           id="path857" />
+        <path
+           d="m 584.30176,285.15423 v -33.84375 h 11.01562 v 23.76563 h 18.32813 v 10.07812 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:'StarJedi Special Edition';-inkscape-font-specification:'StarJedi Special Edition';text-align:center;text-anchor:middle;fill:#ff5b00;fill-opacity:1;stroke:none"
+           id="path859" />
+        <path
+           d="m 472.61035,321.38861 h -10.64062 q -6.02344,-0.1875 -1.78125,3.32812 7.59375,6.65625 7.45312,12.9375 -0.14062,6.28125 -7.45312,7.5 h -29.53125 v -10.07812 h 18.65625 q 6.63281,0.1875 1.6875,-3.70313 -8.15625,-7.5 -6.9375,-13.78125 1.21875,-6.28125 7.6875,-6.28125 h 20.85937 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:'StarJedi Special Edition';-inkscape-font-specification:'StarJedi Special Edition';text-align:center;text-anchor:middle;fill:#ff5b00;fill-opacity:1;stroke:none"
+           id="path861" />
+        <path
+           d="m 489.60254,322.98236 v -11.67188 h 11.01562 v 33.84375 h -11.01562 v -12.1875 h -8.85938 v 12.1875 h -11.01562 v -33.84375 h 11.01562 v 11.67188 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:'StarJedi Special Edition';-inkscape-font-specification:'StarJedi Special Edition';text-align:center;text-anchor:middle;fill:#ff5b00;fill-opacity:1;stroke:none"
+           id="path863" />
+        <path
+           d="m 499.68066,345.15423 11.13282,-33.84375 h 16.80468 l 11.32032,33.84375 H 526.1416 l -2.13281,-6.09375 H 513.9541 l -2.13281,6.09375 z m 19.57032,-26.34375 -4.85157,13.40625 h 9.32813 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:'StarJedi Special Edition';-inkscape-font-specification:'StarJedi Special Edition';text-align:center;text-anchor:middle;fill:#ff5b00;fill-opacity:1;stroke:none"
+           id="path865" />
+        <path
+           d="m 538.46973,345.15423 v -33.84375 h 22.03125 q 4.07812,0.35156 6.70312,2.32031 2.625,1.94532 3.84375,5.22657 0.9375,4.89843 0.0937,7.57031 -0.84375,2.67187 -2.95312,4.45312 -2.10938,1.78125 -2.625,2.03907 -0.51563,0.23437 -0.75,0.75 0.14062,0.89062 3,1.40625 h 6.98437 v 10.07812 h -8.10937 q -7.3125,0.14063 -11.57813,-4.5 l -4.40625,-4.64062 v 9.14062 z m 12.23437,-24.65625 v 5.71875 h 7.92188 q 3.375,-1.125 3.51562,-2.90625 -0.23437,-1.875 -3.60937,-2.8125 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:'StarJedi Special Edition';-inkscape-font-specification:'StarJedi Special Edition';text-align:center;text-anchor:middle;fill:#ff5b00;fill-opacity:1;stroke:none"
+           id="path867" />
+        <path
+           d="m 574.79785,345.15423 v -33.84375 h 29.01563 v 10.07813 h -18 v 2.20312 h 7.54687 v 6.5625 h -7.54687 v 4.92188 h 20.85937 v 10.07812 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:'StarJedi Special Edition';-inkscape-font-specification:'StarJedi Special Edition';text-align:center;text-anchor:middle;fill:#ff5b00;fill-opacity:1;stroke:none"
+           id="path869" />
+      </g>
+    </g>
+  </g>
+</svg>

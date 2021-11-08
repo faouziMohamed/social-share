@@ -24,8 +24,8 @@ export default function LeftPane({ currentTab = 'Home', showLeftPane }) {
             <Link href='/home'>
               <a className={`${style.app_home_link} ${style.left_pane__link}`}>
                 <Image
-                  src='/favicon.ico'
-                  alt={`${user.username} profil Picture`}
+                  src='/sc-icons/logo/sc-default.png'
+                  alt={`${user.username} profile Picture`}
                   layout='fill'
                   className={style.app_home_link__img}
                 />
@@ -34,7 +34,7 @@ export default function LeftPane({ currentTab = 'Home', showLeftPane }) {
           </div>
         </header>
         <div className={style.name_container}>
-          <Link href='/app/profile'>
+          <Link href='/profile'>
             <a className={`${style.user_profile} ${style.left_pane__link}`}>
               <UserAvatar user={user} removeLink />
               <UserBadge user={user} removeLink darkerFont>
