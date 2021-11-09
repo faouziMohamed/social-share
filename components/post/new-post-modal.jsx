@@ -8,11 +8,7 @@ import UserBadge from '../context-menu/row-item';
 import FormButton from '../forms/form-button';
 import FormRowField from '../forms/form-rowField';
 
-export default function NewPostModal({
-  user,
-  setShowNewPostModal,
-  setUpdateFeed,
-}) {
+export default function NewPostModal({ user, setShowNewPostModal }) {
   const modalRef = useRef(null);
   const btnRef = useRef(null);
   const iconRef = useRef(null);
@@ -48,7 +44,6 @@ export default function NewPostModal({
 
             <NewPostForm
               user={user}
-              setUpdateFeed={setUpdateFeed}
               handleClose={handleClose}
               setFeedback={setFeedback}
               setOpenModal={setShowNewPostModal}
@@ -89,12 +84,7 @@ function FeedbackMessage({ feedback, setFeedback }) {
   );
 }
 
-export function NewPostForm({
-  user,
-  setUpdateFeed,
-  setFeedback,
-  setOpenModal,
-}) {
+export function NewPostForm({ user, setFeedback, setOpenModal }) {
   const fields = [
     {
       labelText: 'Post title',
@@ -145,7 +135,6 @@ export function NewPostForm({
         cachedPosts.push(post);
         sessionStorage.setItem('posts', JSON.stringify(cachedPosts));
         mutate(post);
-        setUpdateFeed(true);
         setOpenModal(false);
       }
     } catch (error) {
