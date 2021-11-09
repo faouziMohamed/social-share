@@ -15,7 +15,7 @@ export function ProfileHead() {
   return (
     <div className={style.head_wrapper}>
       <div className={style.profile_head}>
-        <ProfileCover />
+        <ProfileCover user={user} />
         <div className={style.profile_basics}>
           <div className={style.img_profile_wrapper}>
             <div className={style.user_profile_picture}>
@@ -34,13 +34,13 @@ export function ProfileHead() {
   );
 }
 
-function ProfileCover() {
+function ProfileCover({ user }) {
   return (
     <div className={style.profile_cover}>
       <div className={style.cover_img}>
         <Image
           layout='fill'
-          src='/images/users/cover/cover-5.jpeg'
+          src={user.cover}
           alt='user'
           className={style.cover_picture}
         />

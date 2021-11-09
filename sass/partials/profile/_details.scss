@@ -1,0 +1,71 @@
+@use '../00-globals/global-mixin' as gmix;
+@use '../00-globals/variables' as gvar;
+@use './common' as c;
+.profileContentWraper {
+  @include gmix.size(100%);
+}
+
+.profileDetails {
+  @include gmix.flexbox(column, $al: flex-start);
+  gap: 1rem;
+  padding-inline: c.$padding;
+}
+.profileAbout,
+.friendsFollowersCount,
+.profilePosts {
+  @include gmix.flexbox(column, $al: flex-start);
+  gap: 1rem;
+  width: 100%;
+  @include c.base-parent;
+}
+.profilePosts,
+.friendsFollowersCount {
+  gap: 0;
+  padding: c.$padding;
+}
+.usersCountWrapper {
+  @include gmix.flexbox($jt: space-between);
+  width: 100%;
+  padding: c.$padding;
+  &:first-child {
+    border-block-end: c.$border;
+  }
+}
+
+.rowIcon {
+  background-color: gvar.$primary_color;
+  display: block;
+  padding: 0.88rem;
+  border-radius: 0.5rem;
+}
+
+.statsValue,
+.statsName {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: gvar.$primary_color_darkest;
+}
+
+.statsName {
+  color: rgb(110, 106, 106);
+  font-weight: 900;
+  font-size: 0.78rem;
+  font-family: Roboto, 'Open Sans', Ubuntu, serif;
+}
+
+.left {
+  @include gmix.flexbox;
+  gap: 1rem;
+}
+
+.count {
+  @include gmix.flexbox(column);
+}
+
+// .profileAbout {
+// }
+
+.profileAbout_header {
+  font-size: 1.1rem;
+  font-family: Roboto, 'Open sans', Ubuntu, serif;
+}
