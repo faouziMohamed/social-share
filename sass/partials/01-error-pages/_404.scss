@@ -1,4 +1,4 @@
-@use '../00-globals/global-mixin' as *;
+@use '../00-globals/global-mixin' as gmix;
 
 .error-page-404 {
   background-image: linear-gradient(
@@ -9,7 +9,7 @@
 
   &__content {
     height: 100%;
-    @include useFlexbox(column, center, center);
+    @include gmix.flexbox(column, center, center);
 
     &__header {
       align-items: center;

@@ -1,39 +1,83 @@
 @use '../00-globals/variables' as v;
+@use '../00-globals/global-mixin' as gmix;
 
+%post_common {
+  display: flex;
+  width: 90%;
+  max-width: 35rem;
+  min-width: 18rem;
+}
+
+%row-vertical-center {
+  display: flex;
+
+  align-items: center;
+}
 .post_wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0);
   padding-block: 0.5rem;
+  background-color: rgba(196, 38, 38, 0);
 }
-
 .post {
+  @extend %post_common;
   background-color: rgba(234, 250, 242, 0);
-  display: flex;
   flex-direction: column;
-  width: 90%;
-  max-width: 35rem;
-  min-width: 18rem;
   border-radius: 0.3rem;
   box-shadow: 0 0 0.5rem 0.05rem rgba(1, 22, 36, 0.212);
 }
 
+.new_post_prompt {
+  @extend %post_common;
+  align-items: center;
+  position: relative;
+  gap: 0.5rem;
+  padding: 0.7rem 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 0.6rem;
+  transform: scale(1);
+  transition: transform 50ms ease-in-out;
+  box-shadow: 0 0 0.3rem 0.05rem rgba(105, 105, 105, 0.212);
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 0.9rem 0.05rem rgba(129, 153, 153, 0.349);
+    border-color: rgb(231, 233, 233);
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    @include gmix.fullAbsPosition;
+    z-index: 1;
+    border-radius: 0.6rem;
+  }
+}
+
+.post_wide {
+  width: 100%;
+  max-width: 100%;
+  @media (min-width: 720px) {
+    max-width: 45rem;
+  }
+}
+
 .post_top_details {
-  padding: 0.2rem 0.5rem 0.1rem 0.5rem;
-  border-radius: 0.3rem 0.3rem 0 0;
   flex-basis: 100%;
   display: flex;
+  padding: 0.2rem 0.5rem 0.1rem 0.5rem;
+  border-radius: 0.3rem 0.3rem 0 0;
+  border-block-end: 1px solid rgb(213, 221, 217);
   justify-content: space-between;
   background-color: rgb(215, 255, 235);
-  border-block-end: 1px solid rgb(213, 221, 217);
 }
 
 .post_data {
-  display: flex;
-  align-items: center;
-  gap: 0.2rem;
   flex: 1;
+  @extend %row-vertical-center;
+  gap: 0.2rem;
 }
 
 .post_date {
@@ -44,25 +88,19 @@
 }
 
 .post_options {
-  display: flex;
-  position: relative;
-  align-items: center;
+  @extend %row-vertical-center;
   position: relative;
 }
 
 .post_pre_options_btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include gmix.flexbox;
   gap: 0.3rem;
   position: relative;
 }
 
 .share_btn {
   $color: rgb(0, 129, 151);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include gmix.flexbox;
   gap: 0.3rem;
   position: relative;
   padding: 0.2rem 0.5rem;
@@ -87,8 +125,7 @@
 }
 
 .open_optionBtn {
-  width: 2.3rem;
-  height: 2.3rem;
+  @include gmix.size(2.3rem);
   padding: 0.6rem;
   font-size: 1rem;
   border-radius: 50%;
@@ -120,20 +157,17 @@
   &::before {
     content: '';
     display: block;
+    @include gmix.position(absolute, -1.04rem, $right: 0.3rem);
     width: 1rem;
     border: 0.5rem solid rgb(7, 7, 7);
     border-color: transparent transparent rgb(158, 158, 158) transparent;
-    position: absolute;
-    right: 0.3rem;
-    top: -1.04rem;
     pointer-events: none;
   }
 }
 
 .option_item {
-  display: flex;
+  @extend %row-vertical-center;
   text-align: start;
-  align-items: center;
   gap: 0.6rem;
   padding: 0.3rem 0.5rem;
   width: 100%;
@@ -188,9 +222,7 @@
 }
 
 .reaction_btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include gmix.flexbox;
   gap: 0.3rem;
   padding: 0.3rem 0.5rem;
   background-color: transparent;
@@ -220,8 +252,7 @@
 }
 
 .stats {
-  display: flex;
-  align-items: center;
+  @extend %row-vertical-center;
   gap: 0.5rem;
   font-size: 0.85rem;
   font-family: 'Titillium Web', Merriweather, Times, serif;
@@ -268,49 +299,12 @@
 }
 
 .stats_count {
-  display: flex;
-  align-items: center;
+  @extend %row-vertical-center;
   gap: 0.15rem;
 }
 
-.new_post_prompt {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.7rem 0.5rem;
-  cursor: pointer;
-  width: 90%;
-  max-width: 35rem;
-  min-width: 18rem;
-  position: relative;
-  border-radius: 0.6rem;
-  border: 1px solid transparent;
-  transition: transform 50ms ease-in-out;
-  transform: scale(1);
-  box-shadow: 0 0 0.3rem 0.05rem rgba(105, 105, 105, 0.212);
-
-  &:hover {
-    transform: scale(1.01);
-
-    box-shadow: 0 0 0.9rem 0.05rem rgba(129, 153, 153, 0.349);
-    border-color: rgb(231, 233, 233);
-  }
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    border-radius: 0.6rem;
-  }
-}
-
 .comment_prompt {
-  display: flex;
-  align-items: center;
+  @extend %row-vertical-center;
   gap: 0.5rem;
   position: relative;
   padding-block: 0.2rem 0;
@@ -318,8 +312,7 @@
 
 .search_prompt {
   transition: all 0.3s ease-in-out;
-  display: flex;
-  align-items: center;
+  @extend %row-vertical-center;
   position: relative;
   max-width: 25rem;
 
@@ -332,9 +325,7 @@
 }
 
 .modal_container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include gmix.flexbox;
   background-color: rgba(202, 202, 202, 0.568);
   position: fixed;
   top: 0;
@@ -351,7 +342,6 @@
 .modal {
   display: flex;
   flex-direction: column;
-
   background-color: red;
   width: 84%;
   max-width: 40rem;
@@ -362,25 +352,20 @@
 }
 
 .modal_header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include gmix.flexbox;
   position: relative;
   padding: 0.5rem 0.5rem;
   border-block-end: 1px solid rgba(218, 213, 213, 0.659);
 }
 
 .close_btn {
+  @include gmix.flexbox;
   position: absolute;
   right: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: rgb(230, 230, 230);
   border-radius: 50%;
   color: rgb(89, 89, 89);
-  width: 1.6rem;
-  height: 1.6rem;
+  @include gmix.size(1.6rem);
   border: none;
 
   &:hover,
@@ -400,38 +385,36 @@
 
 .modal_body {
   flex: 1 1 auto;
-  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  padding: 0.5rem;
 }
 
 .modal_textarea {
   color: black;
   width: 100%;
-  border: none;
   height: 200px;
+  padding: 5px;
+  font-size: 2em;
+  border: none;
   resize: none;
   display: block;
   outline: none;
-  padding: 5px;
-  font-size: 2em;
   font-family: ubuntu;
   background-color: transparent;
 }
 
 .feedback_container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  @include gmix.flexbox;
+  position: relative;
   gap: 0.5rem;
   padding: 0.2rem 0.5rem;
-  color: rgb(255, 255, 255);
   font-weight: 600;
   font-size: 0.88rem;
+  text-align: center;
   font-family: 'Titillium Web', Merriweather, Times, serif;
-  position: relative;
+  color: rgb(255, 255, 255);
   * {
     color: inherit;
   }

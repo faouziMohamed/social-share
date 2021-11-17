@@ -1,6 +1,6 @@
 @use './variables' as v;
 
-@mixin useFlexbox($dir: row, $jt: center, $al: center, $inline: none) {
+@mixin flexbox($dir: row, $jt: center, $al: center, $inline: none) {
   @if $inline==none {
     display: flex;
   } @else {
@@ -17,11 +17,12 @@
   }
 }
 
-@mixin flexbox($dir: row, $jt: center, $al: center, $inline: none) {
-  @include useFlexbox($dir, $jt, $al, $inline);
+@mixin size($size) {
+  width: $size;
+  height: $size;
 }
 
-@mixin usePosition(
+@mixin position(
   $position: relative,
   $top: none,
   $left: none,
@@ -45,23 +46,13 @@
   }
 }
 
-@mixin absPosition {
+@mixin fullAbsPosition {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   @content;
-}
-
-@mixin useSquareSize($size) {
-  width: $size;
-  height: $size;
-}
-
-@mixin size($size) {
-  width: $size;
-  height: $size;
 }
 
 %useScrollbarStyle {
@@ -86,9 +77,9 @@
 }
 
 %modalContainerDefault {
-  @include useFlexbox(column);
-  @include usePosition(fixed, 0, 0);
-  @include useSquareSize(100%);
+  @include flexbox(column);
+  @include position(fixed, 0, 0);
+  @include size(100%);
   z-index: v.$zindex_modal_level_one;
   transition: background-color 0.01s ease;
 

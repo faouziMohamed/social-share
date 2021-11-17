@@ -1,5 +1,5 @@
 @use '../00-globals/variables' as v;
-@use '../00-globals/global-mixin' as *;
+@use '../00-globals/global-mixin' as gmix;
 .row_item {
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@
   gap: 0.5rem;
   padding: 0.4rem 0.3rem;
   text-decoration: none;
-  @include useSquareSize(100%);
+  @include gmix.size(100%);
   list-style-type: none;
 
   &:hover {
@@ -29,9 +29,7 @@
 }
 
 .row_textContent_parent {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include gmix.flexbox(column, $al: flex-start);
   padding: 0.3rem 0.2rem 0 0.2rem;
   line-height: 0.9rem;
 }

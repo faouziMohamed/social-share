@@ -1,5 +1,5 @@
 @use './variables' as v;
-@use './global-mixin' as *;
+@use './global-mixin' as gmix;
 
 *,
 *::after,
@@ -19,7 +19,7 @@ html {
 .root {
   display: flex;
   align-items: stretch;
-  @include usePosition(absolute, 0, 0);
+  @include gmix.position(absolute, 0, 0);
   height: 100%;
   background-color: #f9feff;
   font-family: v.$primary_font;

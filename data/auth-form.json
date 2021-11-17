@@ -3,7 +3,8 @@
     "metadata": {
       "title": "Login to your account",
       "keywords": "login, sign in, account, social share",
-      "description": "Sign in to your account"
+      "description": "Sign in to your account",
+      "path": ["/login"]
     },
     "title": "Login to your account",
     "rowData": [
@@ -40,7 +41,8 @@
     "metadata": {
       "title": "Create a new account",
       "keywords": "signup, new account, create account, social share",
-      "description": "Create a new account for Social Share"
+      "description": "Create a new account for Social Share",
+      "path": ["/sign-up"]
     },
     "title": "Create a new account",
     "rowData": [

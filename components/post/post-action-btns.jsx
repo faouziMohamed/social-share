@@ -3,11 +3,11 @@ import { useEffect, useRef } from 'react';
 import { useUser } from '../../lib/hooks';
 import style from '../../sass/app.module.scss';
 
-export default function PostActionBtns({ statsSetter, metadata, reactions }) {
+export default function PostActionBtns({ statsHooks, metadata, reactions }) {
   const [user] = useUser();
   const buttons = useBtnMetadata(reactions, user);
   const commentBtn = useCommentButton();
-  const buttonRefs = useReactionsButton({ statsSetter, metadata, user });
+  const buttonRefs = useReactionsButton({ statsHooks, metadata, user });
   const { likeBtn, handleBtnClick, dislikeBtn } = buttonRefs;
   return (
     <div className={style.post_reactions}>
@@ -48,13 +48,13 @@ function useBtnMetadata(reactions, user) {
   return buttons;
 }
 
-function useReactionsButton({ statsSetter, metadata, user }) {
+function useReactionsButton({ statsHooks, metadata, user }) {
   const { postId } = metadata;
   const {
     like: [likeCount, setLikeCount],
     dislike: [disLikeCount, setDisLikeCount],
     // comment: [commentsCount, setCommentsCount],
-  } = statsSetter;
+  } = statsHooks;
 
   const likeBtn = useRef();
   const dislikeBtn = useRef();

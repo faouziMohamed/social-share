@@ -3,9 +3,9 @@ $radius: 1rem !default;
 $bg: #f5fffc !default;
 $border: 1px solid #d5d5d5 !default;
 
-@mixin base-parent {
-  padding-inline: $padding;
-  padding-block-start: $padding;
+@mixin base-parent($pad-size: $padding) {
+  padding-inline: $pad-size;
+  padding-block-start: $pad-size;
   border-radius: $radius;
   background-color: $bg;
   border: $border;

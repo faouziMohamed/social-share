@@ -1,11 +1,11 @@
-@use '../partials/00-globals/global-mixin' as *;
+@use '../partials/00-globals/global-mixin' as gmix;
 @use '../partials/00-globals/variables' as v;
 
 .has_loader,
 .bubble_container {
-  @include useFlexbox(column);
-  @include usePosition(absolute, 0, 0);
-  @include useSquareSize(100%);
+  @include gmix.flexbox(column);
+  @include gmix.position(absolute, 0, 0);
+  @include gmix.size(100%);
   justify-content: center;
   align-items: center;
   overflow: hidden;
@@ -23,7 +23,7 @@
   $shadow_size: 1rem;
   $bubble_size: 0.2rem;
   position: relative;
-  @include useSquareSize(2.1rem);
+  @include gmix.size(2.1rem);
   background-color: #fff;
   border-radius: 50%;
   animation: grow 1.2s ease-in-out infinite;

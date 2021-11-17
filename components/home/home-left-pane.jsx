@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 
@@ -6,6 +5,7 @@ import tabsData from '../../data/left-pane.json';
 import { useUser } from '../../lib/hooks';
 import { disconnectUser } from '../../lib/utils/lib.utils';
 import style from '../../sass/app.module.scss';
+import AppLogo from '../misc/app-logo';
 import FuturaSpinner from '../spinners/futura';
 import UserAvatar from '../user/user-avatar';
 import UserBadge from '../user/user-badge';
@@ -14,39 +14,38 @@ export default function LeftPane({ currentTab = 'Home', showLeftPane }) {
   const [user, { loading, mutate }] = useUser();
   const paneRef = useLeftPane(showLeftPane);
   if (loading) return <FuturaSpinner />;
-  setCurrentTab(currentTab);
-
+  const tabs = tabsData.map((t) => ({
+    ...t,
+    current: currentTab === t.name,
+    showTitle: showLeftPane,
+  }));
+  const Badge = () => (
+    <UserBadge user={user} removeLink darkerFont>
+      <small className={style.lighter}>{`@${user?.username}`}</small>
+    </UserBadge>
+  );
+  const showBadge = !showLeftPane;
+  const media700px = matchMedia('(min-width:700px)');
   return (
-    <div className={style.left_pane} ref={paneRef}>
-      <div className={style.left_pane__content}>
-        <header className={style.left_pane__header}>
+    <div className={style.leftpane} ref={paneRef}>
+      <div className={style.leftpane__content}>
+        <header className={style.leftpane__header}>
           <div className={style.logo_container}>
-            <Link href='/home'>
-              <a className={`${style.app_home_link} ${style.left_pane__link}`}>
-                <Image
-                  src='/sc-icons/logo/sc-default.png'
-                  alt={`${user.username} profile Picture`}
-                  layout='fill'
-                  className={style.app_home_link__img}
-                />
-              </a>
-            </Link>
+            <AppLogo size='large' />
           </div>
         </header>
         <div className={style.name_container}>
           <Link href='/profile'>
-            <a className={`${style.user_profile} ${style.left_pane__link}`}>
+            <a className={`${style.user_profile} ${style.leftpane_link}`}>
               <UserAvatar user={user} removeLink />
-              <UserBadge user={user} removeLink darkerFont>
-                <small className={style.lighter}>{`@${user?.username}`}</small>
-              </UserBadge>
+              {media700px.matches ? showBadge && <Badge /> : <Badge />}
             </a>
           </Link>
         </div>
-        <nav className={style.left_pane__nav}>
-          <ul className={style.left_pane__nav__list}>
-            <NavigationLinks tabs={tabsData} showTitle={showLeftPane} />
-            <LogoutButton mutate={mutate} showTitle={showLeftPane} />
+        <nav className={style.leftpane__nav}>
+          <ul className={style.leftpane_tabs}>
+            <NavigationLinks tabs={tabs} />
+            <LogoutButton mutate={mutate} />
           </ul>
         </nav>
       </div>
@@ -58,34 +57,31 @@ function useLeftPane(showLeftPane) {
   const paneRef = useRef(null);
   useEffect(() => {
     if (showLeftPane) {
-      paneRef.current.classList.add(style.left_pane_oppened);
+      paneRef.current.classList.add(style.leftpane_oppened);
     } else {
-      paneRef.current.classList.remove(style.left_pane_oppened);
+      paneRef.current.classList.remove(style.leftpane_oppened);
     }
   }, [showLeftPane]);
   return paneRef;
 }
 
-function setCurrentTab(currentTab) {
-  tabsData.some((tab) => {
-    if (tab.name === currentTab) {
-      tab.current = true;
-      return true;
-    }
-    return false;
-  });
-}
-
-function NavigationLinks({ tabs = [], showTitle }) {
+function NavigationLinks({ tabs = [] }) {
   return tabs.map((data = {}) => (
-    <NewLink {...data} showTitle={showTitle} key={data.name} />
+    <NewLink
+      name={data.name}
+      path={data.path}
+      icon={data.icon}
+      current={data.current}
+      showTitle={data.showTitle}
+      key={data.name}
+    />
   ));
 }
 
 function NewLink({ name, path, icon, current, showTitle }) {
-  let linkCls = `${style.left_pane__nav__link} `;
-  linkCls += `${style.left_pane__link} `;
-  linkCls += current ? style.current_page_tab : '';
+  let linkClass = `${style.leftpane_navLink} `;
+  linkClass += `${style.leftpane_link} `;
+  linkClass += current ? style.current_page_tab : '';
   const iconRef = useRef(null);
   useEffect(() => {
     iconRef.current.setAttribute('title', '');
@@ -94,20 +90,14 @@ function NewLink({ name, path, icon, current, showTitle }) {
       iconRef.current.setAttribute('title', title);
     }
   }, [showTitle]);
-  const key = `${name}-${path}`;
-
   return (
-    <li className={style.left_pane__nav__item} key={key}>
+    <li className={style.leftpane_item}>
       <Link href={`${path}`}>
-        <a className={linkCls}>
-          <span
-            className={style.left_pane__nav__link__icon}
-            ref={iconRef}
-            data-title={name}
-          >
+        <a className={linkClass}>
+          <span ref={iconRef} data-title={name}>
             <i className={icon} />
           </span>
-          <span className={style.left_pane__nav__link__text}>{name}</span>
+          <span className={style.leftpane_linkText}>{name}</span>
         </a>
       </Link>
     </li>
@@ -115,15 +105,15 @@ function NewLink({ name, path, icon, current, showTitle }) {
 }
 
 function LogoutButton({ mutate }) {
-  let btnCls = `${style.left_pane__nav__link} `;
-  btnCls += `${style.left_pane_logoutBtn} `;
+  let btnCls = `${style.leftpane_navLink} ${style.leftpane_link} `;
+  btnCls += `${style.leftpane_logoutBtn} `;
   return (
-    <li className={style.left_pane__nav__item}>
+    <li className={style.leftpane_item}>
       <button className={btnCls} onClick={() => disconnectUser(mutate)}>
-        <span className={style.left_pane__nav__link__icon} title={'Logout'}>
+        <span title={'Logout'}>
           <i className='fad fa-sign-out-alt' />
         </span>
-        <span className={style.left_pane__nav__link__text}>Logout</span>
+        <span className={style.leftpane_linkText}>Logout</span>
       </button>
     </li>
   );

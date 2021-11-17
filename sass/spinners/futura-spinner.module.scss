@@ -1,4 +1,4 @@
-@use '../partials/00-globals/global-mixin' as *;
+@use '../partials/00-globals/global-mixin' as gmix;
 @use '../partials/00-globals/variables' as v;
 
 @keyframes spinner {
@@ -25,8 +25,8 @@
 
 .preloader-parent {
   position: absolute;
-  @include useFlexbox(none);
-  @include useSquareSize(100%);
+  @include gmix.flexbox(none);
+  @include gmix.size(100%);
 }
 
 .spinner_preloader {
@@ -59,8 +59,8 @@
 
 .load_spinner {
   position: relative;
-  @include useSquareSize(var(--load-spinner-size));
-  @include useFlexbox(none);
+  @include gmix.size(var(--load-spinner-size));
+  @include gmix.flexbox(none);
   @extend %spinner_preset;
   animation: addSpinnerAnimation($duration: 2s);
 
@@ -73,14 +73,14 @@
     border-color: transparent var(--outer-spinner-color)
       var(--outer-spinner-color);
     animation: addSpinnerAnimation($duration: 1s, $direction: reverse);
-    @include useSquareSize(175%);
+    @include gmix.size(175%);
   }
 
   &::before {
     animation: addSpinnerAnimation($duration: 1.2s, $direction: reverse);
     border-color: transparent var(--middle-spinner-color1)
       var(--middle-spinner-color2);
-    @include useSquareSize(140%);
+    @include gmix.size(140%);
   }
 }
 

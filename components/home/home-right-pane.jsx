@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import ads from '../../data/ads.json';
 import style from '../../sass/app.module.scss';
 
-export default function RightPane({ user }) {
+export default function RightPane() {
   return (
     <div className={style.rightpane}>
-      <h1>Advertisments {user.username}</h1>
+      <h1>Advertisments</h1>
       <div className={style.rightpane_root}>
         <RightPaneAds />
       </div>

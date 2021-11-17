@@ -8,12 +8,10 @@ import LeftPane from './home-left-pane';
 import { NavBar } from './home-navbar';
 import RightPane from './home-right-pane';
 
-export default function HomeLayout({ children, modalOppened }) {
+export default function HomeLayout({ children, preventScroll }) {
   const [user, { loading }] = useUser();
   const [showLeftPane, setShowLeftPane] = useState(false);
   if (loading) return <FuturaSpinner />;
-  const sidenavPros = { showLeftPane, setShowLeftPane };
-  const burgerMenuPros = { setShowLeftPane };
   const pageData = {
     title: 'Home | Social share',
     description: 'Social share',
@@ -25,19 +23,18 @@ export default function HomeLayout({ children, modalOppened }) {
       <HeadMeta pageData={pageData} />
       <div className={`root ${style.root}`}>
         <div className={style.root_content}>
-          <LeftPane {...sidenavPros} />
+          <LeftPane showLeftPane={showLeftPane} />
           <div className={style.main_content}>
-            <NavBar {...{ burgerMenuPros, user }} />
+            <NavBar setShowLeftPane={setShowLeftPane} user={user} />
             <main
               className={`${style.content_container} ${
-                modalOppened && style.prevent_scroll
+                preventScroll && style.prevent_scroll
               }`}
             >
               {children}
             </main>
           </div>
-
-          <RightPane user={user} />
+          <RightPane />
         </div>
       </div>
     </>

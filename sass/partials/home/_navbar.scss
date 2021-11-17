@@ -1,8 +1,8 @@
 @use '../00-globals/variables' as v;
-@use '../00-globals/global-mixin' as *;
+@use '../00-globals/global-mixin' as gmix;
 
 .main_page__navbar {
-  @include useFlexbox(none, space-around, center);
+  @include gmix.flexbox(none, space-around, center);
   width: 100%;
   padding-inline: 0.3rem;
   background-color: #f0f9ff;
@@ -11,14 +11,14 @@
 }
 
 .top_navbar {
-  @include useFlexbox($jt: flex-end, $al: center);
+  @include gmix.flexbox($jt: flex-end, $al: center);
   padding-block: 0.3rem;
   list-style: none;
   gap: 1rem;
 
   &__btn {
-    @include useSquareSize(2.2rem);
-    @include useFlexbox($jt: center, $al: center);
+    @include gmix.size(2.2rem);
+    @include gmix.flexbox($jt: center, $al: center);
     padding: 0.5rem;
     position: relative;
     color: #292929e3;

@@ -1,7 +1,6 @@
+@use '../00-globals/global-mixin' as gmix;
 .user_avatar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include gmix.flexbox;
   position: relative;
   clip-path: circle(50% at 50% 50%);
   position: relative;
@@ -10,28 +9,23 @@
 }
 
 .avatarXLarge {
-  width: 5.2rem;
-  height: 5.2rem;
+  @include gmix.size(5.2rem);
 }
 
 .avatarLarge {
-  width: 3rem;
-  height: 3rem;
+  @include gmix.size(3rem);
 }
 
 .avatarNormal {
-  width: 2.5rem;
-  height: 2.5rem;
+  @include gmix.size(2.5rem);
 }
 
 .avatarSmall {
-  width: 2rem;
-  height: 2rem;
+  @include gmix.size(2rem);
 }
 
 .user_avatar_img {
-  width: 100%;
-  height: 100%;
+  @include gmix.size(100%);
   border-radius: 50%;
   object-fit: cover;
 }

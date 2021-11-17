@@ -11,11 +11,7 @@
 */
 @use '../common' as *;
 @use '../../partials/00-globals/variables' as v;
-@use '../../partials/00-globals/global-mixin' as *;
-
-%useSameFlexbox {
-  @include useFlexbox();
-}
+@use '../../partials/00-globals/global-mixin' as gmix;
 
 .checkbox {
   display: flex;
@@ -23,7 +19,7 @@
   width: max-content;
 
   &__label {
-    @extend %useSameFlexbox;
+    @include gmix.flexbox();
     gap: 0.5rem;
     cursor: pointer;
     position: relative;
@@ -32,15 +28,15 @@
 }
 
 .checkbox__checker {
-  @extend %useSameFlexbox;
+  @include gmix.flexbox();
   color: black;
-  @include useSquareSize(1.6rem);
+  @include gmix.size(1.6rem);
 
   &::before {
     content: '';
     transition: all 0.2s ease-in-out;
-    @extend %useSameFlexbox;
-    @include useSquareSize(100%);
+    @include gmix.flexbox();
+    @include gmix.size(100%);
     font-size: 2.3rem;
     border-radius: 3px;
     color: #eeef;

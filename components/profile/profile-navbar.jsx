@@ -1,11 +1,9 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
 
 import { useUser } from '../../lib/hooks';
 import style from '../../sass/app.module.scss';
-import css from '../../sass/profile.module.scss';
 import FormRowField from '../forms/form-rowField';
+import AppLogo from '../misc/app-logo';
 import UserAvatar from '../user/user-avatar';
 import UserProfileCard from '../user/user-profile-card';
 
@@ -13,7 +11,7 @@ export function ProfileNavBar() {
   const [user] = useUser();
   return (
     <div className={style.main_page__navbar}>
-      <AppLogo user={user} size='medium' />
+      <AppLogo size='medium' />
       <div className={style.search_prompt}>
         <FormRowField
           type='text'
@@ -37,21 +35,8 @@ export function ProfileNavBar() {
   );
 }
 
-function AppLogo({ user }) {
-  return (
-    <Link href='/home'>
-      <a className={`${css.app_home_link}`}>
-        <Image
-          src='/sc-icons/logo/sc-default.png'
-          alt={`${user.username} profile picture`}
-          layout='fill'
-        />
-      </a>
-    </Link>
-  );
-}
-
-export function UserCard({ user }) {
+export function UserCard() {
+  const [user] = useUser();
   const [showCard, setShowCard] = useState(false);
   const toggleProfileCard = () => setShowCard(!showCard);
   return (
@@ -67,8 +52,8 @@ export function UserCard({ user }) {
 
 export function NotificationButton() {
   return (
-    <button className={`${style.top_navbar__btn} ${style.notif_btn}`}>
-      <i className='fas fa-bell fa-1x'> </i>
+    <button className={style.btn_transRounded}>
+      <i className='fas fa-bell fa-1x' />
     </button>
   );
 }

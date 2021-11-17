@@ -1,9 +1,9 @@
-@use '../00-globals/global-mixin' as *;
+@use '../00-globals/global-mixin' as gmix;
 @use '../00-globals/variables' as v;
 @use './variables' as fv;
 
 .gentle_form {
-  @include useFlexbox(column, center, none);
+  @include gmix.flexbox(column, center, none);
   position: relative;
   width: 100%;
   padding: 0.5rem 0.5rem;
@@ -11,7 +11,7 @@
 }
 
 .form_content {
-  @include useFlexbox(column, center, none, 1);
+  @include gmix.flexbox(column, center, none, 1);
   position: relative;
   width: 100%;
   padding: 0.5rem;
@@ -21,7 +21,7 @@
 }
 
 .form_fieldset {
-  @include useFlexbox(column, center, none);
+  @include gmix.flexbox(column, center, none);
   position: relative;
   width: 100%;
   border: none;
@@ -170,8 +170,8 @@
 }
 
 .form_row__btn {
-  @include useFlexbox(row);
-  @include usePosition(absolute, 0, $right: 0, $bottom: 0);
+  @include gmix.flexbox(row);
+  @include gmix.position(absolute, 0, $right: 0, $bottom: 0);
   width: fv.$form-btn-width;
   font-size: 1rem;
   color: #50506a;
@@ -186,7 +186,7 @@
 }
 
 .form_btn_group {
-  @include useFlexbox(row, center, none);
+  @include gmix.flexbox(row, center, none);
   width: 100%;
   gap: 1rem;
 }

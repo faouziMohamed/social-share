@@ -2,8 +2,10 @@ import Head from 'next/head';
 import { Fragment } from 'react';
 
 export default function HeadMeta({ pageData }) {
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
-  const paths = pageData.path || [];
+  const BASE_URL =
+    process.env.NEXT_PUBLIC_BASE_URL.replace(/\/$/, '') ||
+    'http://localhost:3000';
+  const paths = pageData.path.map((p) => p.replace(/^\//, '')) || [];
   const ogImg = `${BASE_URL}/images/logo/favicon-512.png`;
   return (
     <Head>

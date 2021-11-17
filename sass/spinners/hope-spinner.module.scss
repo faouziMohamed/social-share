@@ -1,11 +1,11 @@
-@use '../partials/00-globals/global-mixin' as *;
+@use '../partials/00-globals/global-mixin' as gmix;
 
 .hope_loader {
   position: absolute;
   top: 0;
   left: 0;
-  @include size(100%);
-  @include flexbox;
+  @include gmix.size(100%);
+  @include gmix.flexbox;
   gap: 0.3125rem;
   font-size: 1rem;
   padding-block: 1rem;
@@ -30,11 +30,11 @@
   border-radius: 20px;
   border-style: double;
   border-width: 3px;
-  @include size(2rem);
+  @include gmix.size(2rem);
 }
 
 .loading_text {
-  @include flexbox(column);
+  @include gmix.flexbox(column);
   align-items: flex-start;
   gap: 0.3rem;
 }

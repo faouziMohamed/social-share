@@ -1,10 +1,5 @@
 @use '../../partials/00-globals/variables' as v;
-@use '../../partials/00-globals/global-mixin' as *;
-
-%useSameFlexbox {
-  @include useFlexbox();
-}
-
+@use '../../partials/00-globals/global-mixin' as gmix;
 /* 
 <div class="dialog-parent">
   <div class="modal">
@@ -20,9 +15,9 @@
 */
 
 .alert-dialog-parent {
-  @include usePosition(absolute, 0, 0);
-  @include useFlexbox;
-  @include useSquareSize(100%);
+  @include gmix.position(absolute, 0, 0);
+  @include gmix.flexbox;
+  @include gmix.size(100%);
   background-color: #01022c7c;
   z-index: 1000;
   padding: 1rem;

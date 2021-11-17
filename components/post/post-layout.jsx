@@ -9,13 +9,13 @@ import PostActionBtns from './post-action-btns';
 import PostBody from './post-body';
 import PostTopDetails from './post-top-details';
 
-export default function Post({ post }) {
+export default function Post({ post, wide = false }) {
   const { stats: s, body: postBody, metadata, reactions } = post;
-  const { statsSetter, ...stats } = useStats(s);
-  const pActionProps = { statsSetter, reactions, metadata };
+  const { statsHooks, ...stats } = useStats(s);
+  const pActionProps = { statsHooks, reactions, metadata };
   return (
     <div className={style.post_wrapper}>
-      <div className={style.post}>
+      <div className={`${style.post} ${wide && style.post_wide}`}>
         <PostTopDetails metadata={metadata} />
         <div className={style.post_content}>
           <PostBody body={postBody} />
@@ -109,7 +109,7 @@ function useStats(stats) {
         cls: style.shares,
       },
     ],
-    statsSetter: {
+    statsHooks: {
       like: [likeCount, setLikeCount],
       dislike: [disLikeCount, setDisLikeCount],
       comment: [commentsCount, setCommentsCount],

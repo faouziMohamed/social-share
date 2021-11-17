@@ -24,7 +24,7 @@
   &::after {
     content: '';
     background-color: rgba(20, 6, 31, 0.159);
-    @include gmix.absPosition;
+    @include gmix.fullAbsPosition;
     border-radius: 0.5rem;
   }
   &:hover {
@@ -65,6 +65,7 @@
   flex-direction: column;
   gap: 1rem;
   flex-basis: 100%;
+  overflow: hidden;
 }
 
 .user_profile_picture {
@@ -153,19 +154,17 @@
   }
 }
 
-.profile_foot {
-  white-space: nowrap;
-  overflow: auto hidden;
-  justify-content: flex-end;
-  display: inline-flex;
-  width: 100%;
-}
-
 .profile_tabs {
   width: 100%;
   display: flex;
   overflow: auto;
-  justify-content: center;
+  justify-content: flex-start;
+}
+
+.tabs_min {
+  @media (min-width: 400px) {
+    justify-content: center;
+  }
 }
 
 .profile_tablink {
@@ -219,6 +218,12 @@
     padding-inline-start: 0.5rem;
   }
 
+  .tabs_min {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 930px) {
   .profile_tabs {
     justify-content: flex-end;
   }

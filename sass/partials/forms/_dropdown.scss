@@ -1,4 +1,4 @@
-@use '../00-globals/global-mixin' as *;
+@use '../00-globals/global-mixin' as gmix;
 
 %oppened-dropdown {
   border-color: #88c6ec;
@@ -31,7 +31,7 @@
 
     &::after {
       content: '\f107';
-      @include useFlexbox(none, center, center, 1);
+      @include gmix.flexbox(none, center, center, 1);
       padding-left: 0.1rem;
       font-family: 'Font Awesome 5 Pro', serif;
     }

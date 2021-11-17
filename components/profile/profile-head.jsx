@@ -17,17 +17,8 @@ export function ProfileHead() {
       <div className={style.profile_head}>
         <ProfileCover user={user} />
         <div className={style.profile_basics}>
-          <div className={style.img_profile_wrapper}>
-            <div className={style.user_profile_picture}>
-              <Image
-                src={user.avatar}
-                alt='user'
-                className={style.profile_picture}
-                layout='fill'
-              />
-            </div>
-          </div>
-          <FrontInfo />
+          <ProfilePicture user={user} />
+          <ProfileInformations />
         </div>
       </div>
     </div>
@@ -49,7 +40,22 @@ function ProfileCover({ user }) {
   );
 }
 
-function FrontInfo() {
+function ProfilePicture({ user }) {
+  return (
+    <div className={style.img_profile_wrapper}>
+      <div className={style.user_profile_picture}>
+        <Image
+          src={user.avatar}
+          alt='user'
+          className={style.profile_picture}
+          layout='fill'
+        />
+      </div>
+    </div>
+  );
+}
+
+function ProfileInformations() {
   const router = useRouter();
   const { username } = router.query;
   const [user] = useUser(username);
@@ -65,7 +71,6 @@ function FrontInfo() {
             {user.firstname} {user.lastname}
           </span>
         </div>
-
         {curUser.username !== username && (
           <div className={style.profile_contact_btn}>
             <button
@@ -112,45 +117,52 @@ function FrontInfo() {
           </div>
         )}
       </div>
-      <div className={style.profile_foot}>
-        <div className={style.profile_tabs}>
-          <Link href={`/profile/${user.username}`}>
-            <a className={`${style.profile_tablink} ${style.active_tab}`}>
-              <i className='fas fa-user' />
-              <span>Profile</span>
-            </a>
-          </Link>
-          <Link href={`/profile/${user.username}/followers`}>
-            <a className={style.profile_tablink}>
-              <i className='fas fa-users' />
-              <span>Followers</span>
-            </a>
-          </Link>
+      <ProfileTabs user={user} curUser={curUser} />
+    </div>
+  );
+}
+function ProfileTabs({ user, curUser }) {
+  const isCurUser = curUser.username === user.username;
+  const { username } = useRouter().query;
+  return (
+    <div className={style.profile_tabsContainer}>
+      <div className={`${style.profile_tabs} ${!isCurUser && style.tabs_min}`}>
+        <Link href={`/profile/${user.username}`}>
+          <a className={`${style.profile_tablink} ${style.active_tab}`}>
+            <i className='fas fa-user' />
+            <span>Profile</span>
+          </a>
+        </Link>
+        <Link href={`/profile/${user.username}/followers`}>
+          <a className={style.profile_tablink}>
+            <i className='fas fa-users' />
+            <span>Followers</span>
+          </a>
+        </Link>
 
-          <Link href={`/profile/${user.username}/friends`}>
-            <a className={style.profile_tablink}>
-              <i className='fas fa-user-friends' />
-              <span>Friends</span>
-            </a>
-          </Link>
+        <Link href={`/profile/${user.username}/friends`}>
+          <a className={style.profile_tablink}>
+            <i className='fas fa-user-friends' />
+            <span>Friends</span>
+          </a>
+        </Link>
 
-          {username === curUser.username && (
-            <>
-              <Link href={`/profile/${user.username}/friend-requests`}>
-                <a className={style.profile_tablink}>
-                  <i className='fas fa-user-plus' />
-                  <span>Friend Requests</span>
-                </a>
-              </Link>
-              <Link href={`/profile/${user.username}/edit`}>
-                <a className={style.profile_tablink}>
-                  <i className='fas fa-user-edit' />
-                  <span>Edit Profile</span>
-                </a>
-              </Link>
-            </>
-          )}
-        </div>
+        {username === curUser.username && (
+          <>
+            <Link href={`/profile/${user.username}/friend-requests`}>
+              <a className={style.profile_tablink}>
+                <i className='fas fa-user-plus' />
+                <span>Friend Requests</span>
+              </a>
+            </Link>
+            <Link href={`/profile/${user.username}/edit`}>
+              <a className={style.profile_tablink}>
+                <i className='fas fa-user-edit' />
+                <span>Edit Profile</span>
+              </a>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

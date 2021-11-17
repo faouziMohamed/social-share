@@ -1,8 +1,8 @@
-@use '../00-globals/global-mixin' as *;
+@use '../00-globals/global-mixin' as gmix;
 @use '../00-globals/variables' as v;
 .main_wrapper {
-  @include useFlexbox();
-  @include usePosition(absolute, 0, 0, 0, 0);
+  @include gmix.flexbox();
+  @include gmix.position(absolute, 0, 0, 0, 0);
   background-color: rgb(2, 0, 36);
   background-color: #f5f5f5;
   background-repeat: no-repeat;
@@ -21,7 +21,7 @@
   height: 100%;
   background-color: rgba(5, 0, 94, 0.823);
   box-shadow: 0 0 0.5rem 0.01rem rgba(1, 2, 56, 0.802);
-  @include useFlexbox();
+  @include gmix.flexbox();
   overflow-y: auto;
   width: 100%;
   @media (min-width: 340px) {
@@ -48,7 +48,7 @@
 .main_content {
   border-radius: 0.15rem;
 
-  @include useFlexbox(column);
+  @include gmix.flexbox(column);
   width: 95%;
   @media (min-width: 560px) {
     width: 25rem;

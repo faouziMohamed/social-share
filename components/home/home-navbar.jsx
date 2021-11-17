@@ -1,15 +1,17 @@
 import { useState } from 'react';
 
+import { useUser } from '../../lib/hooks';
 import style from '../../sass/app.module.scss';
 import BurgerMenu from '../burgers/burger-menu';
 import FormRowField from '../forms/form-rowField';
+import DotsLoader from '../spinners/dot';
 import UserAvatar from '../user/user-avatar';
 import UserProfileCard from '../user/user-profile-card';
 
-export function NavBar({ burgerMenuPros, user }) {
+export function NavBar({ setShowLeftPane }) {
   return (
     <div className={style.main_page__navbar}>
-      <BurgerMenu {...burgerMenuPros} />
+      <BurgerMenu setShowLeftPane={setShowLeftPane} />
       <div className={style.search_prompt}>
         <FormRowField
           type='text'
@@ -26,15 +28,17 @@ export function NavBar({ burgerMenuPros, user }) {
           <NotificationButton />
         </li>
         <li className={style.top_navbar__item}>
-          <UserCard user={user} />
+          <UserCard />
         </li>
       </ul>
     </div>
   );
 }
 
-export function UserCard({ user }) {
+export function UserCard() {
+  const [user, { loading }] = useUser();
   const [showCard, setShowCard] = useState(false);
+  if (loading) return <DotsLoader alone={false} />;
   const toggleProfileCard = () => setShowCard(!showCard);
   return (
     <div
@@ -42,7 +46,7 @@ export function UserCard({ user }) {
       onClick={toggleProfileCard}
     >
       <UserAvatar user={user} size='large' removeLink />
-      {showCard && <UserProfileCard user={user} />}
+      {showCard && <UserProfileCard />}
     </div>
   );
 }
@@ -50,7 +54,7 @@ export function UserCard({ user }) {
 export function NotificationButton() {
   return (
     <button className={`${style.top_navbar__btn} ${style.notif_btn}`}>
-      <i className='fas fa-bell fa-1x'> </i>
+      <i className='fas fa-bell fa-1x' />
     </button>
   );
 }

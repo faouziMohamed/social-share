@@ -1,4 +1,4 @@
-@use '../../00-globals/global-mixin' as *;
+@use '../../00-globals/global-mixin' as gmix;
 @use '../../00-globals/variables' as v;
 @use '../variables' as lv;
 
@@ -11,8 +11,8 @@
 }
 $leftPane_bg: lighten(v.$primary_color, 70%) !default;
 
-.left_pane {
-  @include usePosition(relative);
+.leftpane {
+  @include gmix.position(relative);
   z-index: 1;
   transition: all 0.2s ease-in-out;
   flex: 0 0 0;
@@ -23,20 +23,20 @@ $leftPane_bg: lighten(v.$primary_color, 70%) !default;
   scrollbar-width: thin;
   scrollbar-color: lighten(v.$secondary_color, 55%) $leftPane_bg;
 
-  &__link {
+  &_link {
     @extend %leftPane_defaultLink;
   }
 
   &__content {
     height: 100%;
-    @include useFlexbox(column, none);
+    @include gmix.flexbox(column, none);
     gap: 1rem;
     padding-block-start: 1rem;
   }
 }
 
 .name_container {
-  @include useFlexbox(none);
+  @include gmix.flexbox(none);
   width: 100%;
   padding-inline: 0.5rem;
 }
@@ -51,13 +51,12 @@ $leftPane_bg: lighten(v.$primary_color, 70%) !default;
   align-items: center;
   gap: 0.5rem;
   padding: 0.4rem 0.3rem;
-  @include useSquareSize(100%);
+  @include gmix.size(100%);
 }
 
-.app_home_link {
+.homeLink {
   display: block;
   position: relative;
-  @include useSquareSize(5rem);
   background-color: rgb(1, 76, 126);
   clip-path: circle(50% at 50% 50%);
 
@@ -67,26 +66,26 @@ $leftPane_bg: lighten(v.$primary_color, 70%) !default;
   }
 }
 
-.left_pane__nav {
-  @include useFlexbox(column, none, flex-start);
+.leftpane__nav {
+  @include gmix.flexbox(column, none, flex-start);
   width: 100%;
 }
 
-.left_pane__nav__list {
-  @include useFlexbox(column, none, flex-start);
+.leftpane_tabs {
+  @include gmix.flexbox(column, none, flex-start);
   list-style-type: none;
   width: 100%;
 }
 
-.left_pane__nav__item {
+.leftpane_item {
   width: 100%;
 }
 
-.left_pane__nav__link {
+.leftpane_navLink {
   $color: darken($leftPane_bg, 3%);
   $links_bg: adjust-hue($color, 1deg);
   border: none;
-  @include useFlexbox(none, none, center);
+  @include gmix.flexbox(none, none, center);
   gap: 0.6rem;
   width: 100%;
   padding-block: 0.9rem;
@@ -111,7 +110,7 @@ $leftPane_bg: lighten(v.$primary_color, 70%) !default;
   &::after {
     $bd_color: lighten(v.$secondary_color, 15%);
     content: '';
-    @include usePosition(absolute, 0, none, 0);
+    @include gmix.position(absolute, 0, none, 0);
     height: 100%;
     width: 0.3rem;
     border: 0.3rem solid;
@@ -120,30 +119,30 @@ $leftPane_bg: lighten(v.$primary_color, 70%) !default;
 }
 
 @media (max-width: 699px) {
-  .left_pane_oppened {
+  .leftpane_oppened {
     flex-basis: 15rem;
   }
 }
 
 @media (min-width: 700px) {
-  .left_pane {
+  .leftpane {
     flex-basis: 15rem;
   }
 
-  .left_pane_oppened {
+  .leftpane_oppened {
     flex-basis: 7rem;
 
     .name_container {
       padding-inline: 0.1rem;
     }
 
-    .left_pane__nav__link {
+    .leftpane_link {
       font-size: 1.6rem;
       padding-inline: 0rem;
       transition: all 0.2s ease-in-out;
       justify-content: center;
 
-      .left_pane__nav__link__text {
+      .leftpane_linkText {
         display: none;
       }
     }
